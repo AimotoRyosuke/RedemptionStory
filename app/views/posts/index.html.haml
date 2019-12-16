@@ -1,4 +1,23 @@
-- if user_signed_in?
-  = link_to "ログアウト", destroy_user_session_path, method: :delete
-- else
-  = link_to "新規登録", new_user_registration_path
+%header.header
+  %h1.header__title もらいモノがたり
+  .header__menu
+    - unless user_signed_in?
+      = link_to "ログイン", new_user_session_path
+      = link_to "新規登録", new_user_registration_path
+    - else
+      = link_to "こんにちは"+current_user.nickname+"さん",""
+      = link_to "ログアウト", destroy_user_session_path, method: :delete
+%section.banner
+  .banner__inner
+    .banner__inner__title
+      %h2.banner__inner__title__main もらいもの　×　ものがたり
+      .banner__inner__title__sub プレゼントでもらったものを、体験と一緒に紹介するサイト
+    .banner__inner__content
+      .banner__inner__content__look ものがたりを見る
+      .banner__inner__content__post ものがたりを投稿する
+%section.wrapper
+  .wrapper__title 新着投稿
+  %ul.wrapper__posts
+    %li.wrapper__posts__post
+  .wrapper__more もっと見る
+%footer もらいモノがたりについて
