@@ -1,0 +1,11 @@
+%div.signin
+  %h2.signin__title ログイン
+  = render "devise/shared/error_messages", resource: resource
+  = form_with model: @user, url: user_session_path, local: true, class: 'signin__form' do |f|
+    .signin__form__group
+      .signin__form__group__name メールアドレス
+      = f.email_field :email, autofocus: true, autocomplete: "email", class: 'signin__form__group__input'
+    .signin__form__group
+      .signin__form__group__name パスワード
+      = f.password_field :password, autocomplete: "new-password", class: 'signin__form__group__input'
+    = f.submit 'ログイン', class: 'signin__form__submit'
