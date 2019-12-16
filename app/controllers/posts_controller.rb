@@ -1,4 +1,5 @@
 class PostsController < ApplicationController
+
   def index
   end
   
@@ -19,4 +20,3 @@ class PostsController < ApplicationController
 
   def destroy
   end
-end

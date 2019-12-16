@@ -1,10 +1,12 @@
 %header.header
   %h1.header__title もらいモノがたり
   .header__menu
-    = link_to "ログイン", ""
-    = link_to "新規登録",""
-    = link_to "こんにちは◯◯さん",""
-    = link_to "ログアウト",""
+    - unless user_signed_in?
+      = link_to "ログイン", new_user_session_path
+      = link_to "新規登録", new_user_registration_path
+    - else
+      = link_to "こんにちは"+current_user.nickname+"さん",""
+      = link_to "ログアウト", destroy_user_session_path, method: :delete
 %section.banner
   .banner__inner
     .banner__inner__title

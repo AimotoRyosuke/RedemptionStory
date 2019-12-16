@@ -8,7 +8,7 @@
 |password|string|null: false|
 |image|string|null: false|
 |sex|string|null: false|
-|birth|stirng|null: false|
+|birth|date|null: false|
 
 #### assosiation
 ---
