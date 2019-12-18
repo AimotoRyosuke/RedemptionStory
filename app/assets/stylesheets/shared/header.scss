@@ -1,21 +1,35 @@
 .header {
   width: 1020px;
-  margin: 0 auto;
-  height: 60px;
+  padding: 0 calc(50% - 510px);
+  height: 80px;
   display: flex;
   justify-content: space-between;
+  box-shadow: 0 3px 3px 0 rgba(0,0,0,0.16);
   &__title {
     margin-left: 15px;
     font-size: 22px;
-    padding: 10px;
+    text-decoration: none;
+    color: black;
+    line-height: 80px;
+    transition: 0.3s;
+  }
+  &__title:hover{
+    opacity: .6;
+    font-size: 23px;
   }
   &__menu {
     a {
+      display: inline-block;
       font-size: 16px;
       margin-left: 15px;
+      padding:0 10px;
       text-decoration: none;
       color: black;
-      line-height: 60px;
+      line-height: 80px;
+    }
+    a:hover {
+      background-color: rgba(212, 212, 212, 0.699);
+      transition: 0.3s;
     }
   }
 }

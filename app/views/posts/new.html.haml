@@ -1,0 +1,19 @@
+.new
+  %h3.new__title 投稿ページ
+  = form_with model: @post, local: true, class: "form" do |f|
+    .form__category
+      %p.form__category__name タイトル
+      = f.text_field :title, class: "form__category__input"
+    .form__category
+      %p.form__category__name タグ
+      = f.text_field :tag, class: "form__category__input"
+    .form__category
+      %p.form__category__name 日付
+      = f.date_field :date, class: 'form__category__input--date'
+    .form__category
+      %p.form__category__name 本文
+      = f.text_area :text, class: "form__category__input--text"
+    .form__category
+      %p.form__category__name 画像
+      = f.file_field :image, class: "form__category__input"
+    = f.submit "投稿", class: "form__submit"

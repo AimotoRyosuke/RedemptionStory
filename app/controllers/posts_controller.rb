@@ -20,3 +20,4 @@ class PostsController < ApplicationController
 
   def destroy
   end
+end

@@ -1,0 +1,40 @@
+.form {
+  &__category {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 50px;
+    &__name {
+      font-size: 18px;
+      width: 80px;
+      align-self: center;
+    }
+    &__input {
+      width: 550px;
+      padding: 0 15px;
+      box-sizing: border-box;
+      height: 40px;
+      &--date {
+        width: 130px;
+        margin-right: 400px;
+        padding-left: 20px;
+        height: 40px;
+      }
+      &--text {
+        width: 550px;
+        padding: 10px 15px;
+        min-height: 100px;
+        box-sizing: border-box;
+        resize: vertical;
+      }
+    }
+  }
+  &__submit {
+    background-color: #8f5508;
+    color: #fff;
+    cursor: pointer;
+    height: 40px;
+    width: 200px;
+    font-size: 18px;
+    margin: 40px 250px 100px;
+  }
+}

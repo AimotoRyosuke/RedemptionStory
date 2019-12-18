@@ -1,12 +1,3 @@
-%header.header
-  %h1.header__title もらいモノがたり
-  .header__menu
-    - unless user_signed_in?
-      = link_to "ログイン", new_user_session_path
-      = link_to "新規登録", new_user_registration_path
-    - else
-      = link_to "こんにちは"+current_user.nickname+"さん",""
-      = link_to "ログアウト", destroy_user_session_path, method: :delete
 %section.banner
   .banner__inner
     .banner__inner__title
@@ -19,5 +10,95 @@
   .wrapper__title 新着投稿
   %ul.wrapper__posts
     %li.wrapper__posts__post
-  .wrapper__more もっと見る
-%footer もらいモノがたりについて
+      = image_tag "banner.jpg", class: "wrapper__posts__post__img"
+      %p.wrapper__posts__post__title タイトルタイトルタイトルタイトルタイトルタイトルタイトルタイトルタイトルタイトルタイトルタイトルタイトルタイトルタイトル
+      .wrapper__posts__post__tag
+        %p タグ１
+        %p タグ２
+      .wrapper__posts__post__bottom
+        %p.wrapper__posts__post__bottom__user ユーザー
+        %p.wrapper__posts__post__bottom__date 投稿日時
+    %li.wrapper__posts__post
+      = image_tag "banner.jpg", class: "wrapper__posts__post__img"
+      %p.wrapper__posts__post__title タイトルタイトルタイトルタイトルタイトルタイトルタイトルタイトルタイトルタイトルタイトルタイトルタイトルタイトルタイトル
+      .wrapper__posts__post__tag
+        %p タグ１
+        %p タグ２
+      .wrapper__posts__post__bottom
+        %p.wrapper__posts__post__bottom__user ユーザー
+        %p.wrapper__posts__post__bottom__date 投稿日時
+    %li.wrapper__posts__post
+      = image_tag "banner.jpg", class: "wrapper__posts__post__img"
+      %p.wrapper__posts__post__title タイトルタイトルタイトルタイトルタイトルタイトルタイトルタイトルタイトルタイトルタイトルタイトルタイトルタイトルタイトル
+      .wrapper__posts__post__tag
+        %p タグ１
+        %p タグ２
+      .wrapper__posts__post__bottom
+        %p.wrapper__posts__post__bottom__user ユーザー
+        %p.wrapper__posts__post__bottom__date 投稿日時
+    %li.wrapper__posts__post
+      = image_tag "banner.jpg", class: "wrapper__posts__post__img"
+      %p.wrapper__posts__post__title タイトルタイトルタイトルタイトルタイトルタイトルタイトルタイトルタイトルタイトルタイトルタイトルタイトルタイトルタイトル
+      .wrapper__posts__post__tag
+        %p タグ１
+        %p タグ２
+      .wrapper__posts__post__bottom
+        %p.wrapper__posts__post__bottom__user ユーザー
+        %p.wrapper__posts__post__bottom__date 投稿日時
+    %li.wrapper__posts__post
+      = image_tag "banner.jpg", class: "wrapper__posts__post__img"
+      %p.wrapper__posts__post__title タイトルタイトルタイトルタイトルタイトルタイトルタイトルタイトルタイトルタイトルタイトルタイトルタイトルタイトルタイトル
+      .wrapper__posts__post__tag
+        %p タグ１
+        %p タグ２
+      .wrapper__posts__post__bottom
+        %p.wrapper__posts__post__bottom__user ユーザー
+        %p.wrapper__posts__post__bottom__date 投稿日時
+    %li.wrapper__posts__post
+      = image_tag "banner.jpg", class: "wrapper__posts__post__img"
+      %p.wrapper__posts__post__title タイトルタイトルタイトルタイトルタイトルタイトルタイトルタイトルタイトルタイトルタイトルタイトルタイトルタイトルタイトル
+      .wrapper__posts__post__tag
+        %p タグ１
+        %p タグ２
+      .wrapper__posts__post__bottom
+        %p.wrapper__posts__post__bottom__user ユーザー
+        %p.wrapper__posts__post__bottom__date 投稿日時
+    %li.wrapper__posts__post
+      = image_tag "banner.jpg", class: "wrapper__posts__post__img"
+      %p.wrapper__posts__post__title タイトルタイトルタイトルタイトルタイトルタイトルタイトルタイトルタイトルタイトルタイトルタイトルタイトルタイトルタイトル
+      .wrapper__posts__post__tag
+        %p タグ１
+        %p タグ２
+      .wrapper__posts__post__bottom
+        %p.wrapper__posts__post__bottom__user ユーザー
+        %p.wrapper__posts__post__bottom__date 投稿日時
+    %li.wrapper__posts__post
+      = image_tag "banner.jpg", class: "wrapper__posts__post__img"
+      %p.wrapper__posts__post__title タイトルタイトルタイトルタイトルタイトルタイトルタイトルタイトルタイトルタイトルタイトルタイトルタイトルタイトルタイトル
+      .wrapper__posts__post__tag
+        %p タグ１
+        %p タグ２
+      .wrapper__posts__post__bottom
+        %p.wrapper__posts__post__bottom__user ユーザー
+        %p.wrapper__posts__post__bottom__date 投稿日時
+    %li.wrapper__posts__post
+      = image_tag "banner.jpg", class: "wrapper__posts__post__img"
+      %p.wrapper__posts__post__title タイトルタイトルタイトルタイトルタイトルタイトルタイトルタイトルタイトルタイトルタイトルタイトルタイトルタイトルタイトル
+      .wrapper__posts__post__tag
+        %p タグ１
+        %p タグ２
+      .wrapper__posts__post__bottom
+        %p.wrapper__posts__post__bottom__user ユーザー
+        %p.wrapper__posts__post__bottom__date 投稿日時
+    %li.wrapper__posts__post
+      = image_tag "banner.jpg", class: "wrapper__posts__post__img"
+      %p.wrapper__posts__post__title タイトルタイトルタイトルタイトルタイトルタイトルタイトルタイトルタイトルタイトルタイトルタイトルタイトルタイトルタイトル
+      .wrapper__posts__post__tag
+        %p タグ１
+        %p タグ２
+      .wrapper__posts__post__bottom
+        %p.wrapper__posts__post__bottom__user ユーザー
+        %p.wrapper__posts__post__bottom__date 投稿日時
+  .wrapper__more
+    %p.wrapper__more__text もっと見る
+    = icon "fas", "angle-double-right", class: "wrapper__more__icon"

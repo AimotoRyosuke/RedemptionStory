@@ -1,0 +1,11 @@
+.footer {
+  height: 350px;
+  width: 100%;
+  background: image-url("banner.jpg") center center / cover;
+  color: rgba(196, 184, 184, 0.781);
+  &__background {
+    height: 100%;
+    width: 100%;
+    background-color: rgba(61, 12, 12, 0.322);
+  }
+}
