@@ -15,5 +15,7 @@
       = f.text_area :text, class: "form__category__input--text"
     .form__category
       %p.form__category__name 画像
-      = f.file_field :image, class: "form__category__input"
+      = f.fields_for :images do |img|
+        = img.file_field :image, name: "post[images_attributes][0][image]", type: "file"
+      -# = f.file_field :image, class: "form__category__input"
     = f.submit "投稿", class: "form__submit"

@@ -1,0 +1,27 @@
+.show
+  .show__content
+    %h1.show__content__title=@post.date
+    .show__content__left
+      = image_tag "banner.jpg", class: "show__content__left__image"
+      .show__content__left__like 
+        = icon "fas", "heart", class: "show__content__left__like__icon"
+        %p.show__content__left__like__nubmer 123
+    .show__content__right
+      %h2.show__content__right__title=@post.title
+      .show__content__right__tag
+        %p タグ1
+        %p タグ2
+      .show__content__right__box
+        %p.show__content__right__user=@post.user.nickname
+        %p.show__content__right__sex=@post.user.sex
+        %p.show__content__right__age=@post.age + "歳（当時）"
+      %p.show__content__right__text=@post.text
+  .show__comment
+    %p.show__comment__title コメント
+    .show__comment__box
+      %p コメント1
+      %pコメント2
+      %pコメント3
+    .show__comment__new
+      %textarea.show__comment__new__input
+      %input(type="submit" value="コメントする" class="show__comment__new__submit")

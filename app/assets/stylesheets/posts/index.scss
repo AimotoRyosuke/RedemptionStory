@@ -39,6 +39,8 @@
         border:1px solid black;
       }
       &__post {
+        text-decoration: none;
+        color: black;
         height: 51px;
         width: 107px;
         padding: 53px 25px;
@@ -58,7 +60,7 @@
     margin-bottom: 50px;
   }
   &__posts {
-    height: 975px;
+    max-height: 975px;
     width: 1195px;
     margin-top: 30px;
     display: flex;
@@ -70,6 +72,10 @@
       width: 280px;
       margin: 0 25px 25px 0;
       box-shadow: 0 2px 4px rgba(0,0,0,.18);
+      a {
+        text-decoration: none;
+        color: black;
+      }
       &__img {
         height: 210px;
         width: 280px;

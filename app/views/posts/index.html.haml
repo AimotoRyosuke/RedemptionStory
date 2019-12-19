@@ -5,100 +5,21 @@
       .banner__inner__title__sub プレゼントでもらったものを、体験と一緒に紹介するサイト
     .banner__inner__content
       .banner__inner__content__look ものがたりを見る
-      .banner__inner__content__post ものがたりを投稿する
+      = link_to "ものがたりを投稿する", new_post_path, class: "banner__inner__content__post"
 %section.wrapper
   .wrapper__title 新着投稿
   %ul.wrapper__posts
-    %li.wrapper__posts__post
-      = image_tag "banner.jpg", class: "wrapper__posts__post__img"
-      %p.wrapper__posts__post__title タイトルタイトルタイトルタイトルタイトルタイトルタイトルタイトルタイトルタイトルタイトルタイトルタイトルタイトルタイトル
-      .wrapper__posts__post__tag
-        %p タグ１
-        %p タグ２
-      .wrapper__posts__post__bottom
-        %p.wrapper__posts__post__bottom__user ユーザー
-        %p.wrapper__posts__post__bottom__date 投稿日時
-    %li.wrapper__posts__post
-      = image_tag "banner.jpg", class: "wrapper__posts__post__img"
-      %p.wrapper__posts__post__title タイトルタイトルタイトルタイトルタイトルタイトルタイトルタイトルタイトルタイトルタイトルタイトルタイトルタイトルタイトル
-      .wrapper__posts__post__tag
-        %p タグ１
-        %p タグ２
-      .wrapper__posts__post__bottom
-        %p.wrapper__posts__post__bottom__user ユーザー
-        %p.wrapper__posts__post__bottom__date 投稿日時
-    %li.wrapper__posts__post
-      = image_tag "banner.jpg", class: "wrapper__posts__post__img"
-      %p.wrapper__posts__post__title タイトルタイトルタイトルタイトルタイトルタイトルタイトルタイトルタイトルタイトルタイトルタイトルタイトルタイトルタイトル
-      .wrapper__posts__post__tag
-        %p タグ１
-        %p タグ２
-      .wrapper__posts__post__bottom
-        %p.wrapper__posts__post__bottom__user ユーザー
-        %p.wrapper__posts__post__bottom__date 投稿日時
-    %li.wrapper__posts__post
-      = image_tag "banner.jpg", class: "wrapper__posts__post__img"
-      %p.wrapper__posts__post__title タイトルタイトルタイトルタイトルタイトルタイトルタイトルタイトルタイトルタイトルタイトルタイトルタイトルタイトルタイトル
-      .wrapper__posts__post__tag
-        %p タグ１
-        %p タグ２
-      .wrapper__posts__post__bottom
-        %p.wrapper__posts__post__bottom__user ユーザー
-        %p.wrapper__posts__post__bottom__date 投稿日時
-    %li.wrapper__posts__post
-      = image_tag "banner.jpg", class: "wrapper__posts__post__img"
-      %p.wrapper__posts__post__title タイトルタイトルタイトルタイトルタイトルタイトルタイトルタイトルタイトルタイトルタイトルタイトルタイトルタイトルタイトル
-      .wrapper__posts__post__tag
-        %p タグ１
-        %p タグ２
-      .wrapper__posts__post__bottom
-        %p.wrapper__posts__post__bottom__user ユーザー
-        %p.wrapper__posts__post__bottom__date 投稿日時
-    %li.wrapper__posts__post
-      = image_tag "banner.jpg", class: "wrapper__posts__post__img"
-      %p.wrapper__posts__post__title タイトルタイトルタイトルタイトルタイトルタイトルタイトルタイトルタイトルタイトルタイトルタイトルタイトルタイトルタイトル
-      .wrapper__posts__post__tag
-        %p タグ１
-        %p タグ２
-      .wrapper__posts__post__bottom
-        %p.wrapper__posts__post__bottom__user ユーザー
-        %p.wrapper__posts__post__bottom__date 投稿日時
-    %li.wrapper__posts__post
-      = image_tag "banner.jpg", class: "wrapper__posts__post__img"
-      %p.wrapper__posts__post__title タイトルタイトルタイトルタイトルタイトルタイトルタイトルタイトルタイトルタイトルタイトルタイトルタイトルタイトルタイトル
-      .wrapper__posts__post__tag
-        %p タグ１
-        %p タグ２
-      .wrapper__posts__post__bottom
-        %p.wrapper__posts__post__bottom__user ユーザー
-        %p.wrapper__posts__post__bottom__date 投稿日時
-    %li.wrapper__posts__post
-      = image_tag "banner.jpg", class: "wrapper__posts__post__img"
-      %p.wrapper__posts__post__title タイトルタイトルタイトルタイトルタイトルタイトルタイトルタイトルタイトルタイトルタイトルタイトルタイトルタイトルタイトル
-      .wrapper__posts__post__tag
-        %p タグ１
-        %p タグ２
-      .wrapper__posts__post__bottom
-        %p.wrapper__posts__post__bottom__user ユーザー
-        %p.wrapper__posts__post__bottom__date 投稿日時
-    %li.wrapper__posts__post
-      = image_tag "banner.jpg", class: "wrapper__posts__post__img"
-      %p.wrapper__posts__post__title タイトルタイトルタイトルタイトルタイトルタイトルタイトルタイトルタイトルタイトルタイトルタイトルタイトルタイトルタイトル
-      .wrapper__posts__post__tag
-        %p タグ１
-        %p タグ２
-      .wrapper__posts__post__bottom
-        %p.wrapper__posts__post__bottom__user ユーザー
-        %p.wrapper__posts__post__bottom__date 投稿日時
-    %li.wrapper__posts__post
-      = image_tag "banner.jpg", class: "wrapper__posts__post__img"
-      %p.wrapper__posts__post__title タイトルタイトルタイトルタイトルタイトルタイトルタイトルタイトルタイトルタイトルタイトルタイトルタイトルタイトルタイトル
-      .wrapper__posts__post__tag
-        %p タグ１
-        %p タグ２
-      .wrapper__posts__post__bottom
-        %p.wrapper__posts__post__bottom__user ユーザー
-        %p.wrapper__posts__post__bottom__date 投稿日時
+    - @posts.each do |post|
+      %li.wrapper__posts__post
+        = link_to post_path(post) do
+          = image_tag "banner.jpg", class: "wrapper__posts__post__img"
+          %p.wrapper__posts__post__title=post.title
+          .wrapper__posts__post__tag
+            %p タグ１
+            %p タグ２
+          .wrapper__posts__post__bottom
+            %p.wrapper__posts__post__bottom__user=post.user.nickname
+            %p.wrapper__posts__post__bottom__date=post.created_at
   .wrapper__more
     %p.wrapper__more__text もっと見る
     = icon "fas", "angle-double-right", class: "wrapper__more__icon"
