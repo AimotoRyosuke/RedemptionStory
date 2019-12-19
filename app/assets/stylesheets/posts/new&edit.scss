@@ -1,0 +1,10 @@
+.new, .edit {
+  width: 700px;
+  margin: 0 auto;
+  &__title {
+    width: 100%;
+    text-align: center;
+    font-size: 22px;
+    margin-top: 40px;
+  }
+}

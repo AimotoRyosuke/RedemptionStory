@@ -1,0 +1,114 @@
+.show {
+  width: 900px;
+  margin: 40px auto 100px;
+  &__content {
+    display: flex;
+    flex-wrap: wrap;
+    &__title {
+      width: 100%;
+      font-size: 24px;
+      font-family: 'Gelasio', serif;
+      border-bottom: 1px solid #e3e3d3;
+      padding:0 0 10px 20px;
+      margin-bottom: 20px;
+    }
+    &__left {
+      height: 500px;
+      width: 500px;
+      position: relative;
+      &__image {
+        height: 500px;
+        width: 500px;
+      }
+      &__like {
+        height: 60px;
+        width: 80px;
+        background-color: rgba(206, 206, 206, 0.5);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        z-index: 1;
+        &__icon {
+          font-size: 22px;
+          margin-right: 5px;
+          cursor: pointer;
+          color: rgb(243, 31, 148);
+        }
+      }
+    }
+    &__right {
+      height: 500px;
+      width: 400px;
+      padding-left: 20px;
+      box-sizing: border-box;
+      &__title {
+        font-size: 18px;
+        font-weight: bold;
+        line-height: 28px;
+        height: 63px;
+        padding-bottom: 7px;
+        box-sizing: border-box;
+      }
+      &__tag {
+        display: flex;
+        flex-wrap: wrap;
+        height: 49px;
+        margin-bottom: 7px;
+        p {
+          margin-right: 7px;
+        }
+      }
+      &__box {
+        margin-bottom: 7px;
+        display: flex;
+        margin-bottom: 15px;
+        p {
+          margin-right: 10px;
+        }
+      }
+      &__text {
+        overflow: auto;
+        max-height: 335px;
+        box-sizing: border-box;
+      }
+    }
+  }
+  &__comment {
+    margin: 40px 0;
+    &__title {
+      width: 100%;
+      font-size: 24px;
+      font-family: 'Gelasio', serif;
+      border-bottom: 1px solid #e3e3d3;
+      padding: 0 0 10px 20px;
+      margin-bottom: 20px;
+    }
+    &__box {
+      margin: 0 50px;
+      p {
+        padding: 10px;
+      }
+    }
+    &__new {
+      width: 800px;
+      margin: 20px auto 0;
+      &__input {
+        width: 800px;
+        min-height: 100px;
+        resize: vertical; 
+      }
+      &__submit {
+        background-color: #8f5508;
+        color: #fff;
+        cursor: pointer;
+        height: 40px;
+        width: 300px;
+        font-size: 18px;
+        margin: 40px 250px 0;
+      }
+    }
+  }
+}

@@ -24,7 +24,7 @@
 ## posts table
 |Column|Type|Options|
 |------|----|-------|
-|name|string|null: false|
+|title|string|null: false|
 |text|text|null: false|
 |date|date|null: false|
 

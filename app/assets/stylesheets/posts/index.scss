@@ -4,7 +4,6 @@
   justify-content: center;
   align-items: center;
   background: image-url("banner.jpg") center center / cover;
-  overflow: hidden;
   &__inner {
     background-color: rgba(297, 297, 297, 50%);
     width: 700px;
@@ -17,11 +16,12 @@
         display: inline-block;
         margin: 0 auto 15px;
         font-size: 40px;
+        font-weight: bold;
       }
       &__sub {
         display: inline-block;
         margin: 0 auto;
-        font-size: 20px;
+        font-size: 22px;
       }
     }
     &__content {
@@ -33,12 +33,14 @@
         width: 107px;
         padding: 53px 25px;
         text-align: center;
-        background: image-url("note.png") center center / cover;
+        background: image-url("note.png") center/cover;
         overflow: hidden;
         margin-right: 200px;
         border:1px solid black;
       }
       &__post {
+        text-decoration: none;
+        color: black;
         height: 51px;
         width: 107px;
         padding: 53px 25px;
@@ -46,6 +48,97 @@
         border-radius: 50%;
         background-color: lightgreen;
       }
+    }
+  }
+}
+
+.wrapper {
+  margin: 80px 0;
+  &__title {
+    text-align: center;
+    font-size: 28px;
+    margin-bottom: 50px;
+  }
+  &__posts {
+    max-height: 975px;
+    width: 1195px;
+    margin-top: 30px;
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 auto;
+    overflow: hidden;
+    &__post {
+      height: 300px;
+      width: 280px;
+      margin: 0 25px 25px 0;
+      box-shadow: 0 2px 4px rgba(0,0,0,.18);
+      a {
+        text-decoration: none;
+        color: black;
+      }
+      &__img {
+        height: 210px;
+        width: 280px;
+      }
+      &__title {
+        display: inline-block;
+        height: 42px;
+        width: 100%;
+        padding: 0 8px;
+        box-sizing: border-box;
+        overflow: hidden;
+        text-align: center;
+        font-weight: bold;
+      }
+      &__tag {
+        width: 100%;
+        display: flex;
+        justify-content:center;
+        padding: 0 8px;
+        box-sizing: border-box;
+        p {
+          display: inline-block;
+          font-size: 12px;
+        }
+      }
+      &__bottom {
+        width: 100%;
+        padding: 0 8px;
+        box-sizing: border-box;
+        margin-top: 6px;
+        display: flex;
+        justify-content: flex-end;
+        &__user {
+          width: auto;
+          display: inline-block;
+          font-size: 12px;
+        }
+        &__date {
+          display: inline-block;
+          font-size: 11px;
+          margin-left: 8px;
+       }
+      }
+    }
+    &__post:nth-child(4n) {
+      margin-right: 0;
+    }
+  }
+  &__more {
+    display: flex;
+    justify-content: center;
+    margin: 20px 0 0 0;
+    &__text {
+      font-size: 24px;
+      margin-right: 8px;
+      transition: 0.6s;
+    }
+    &__text:hover {
+      margin-right: 18px;
+    }
+    &__icon {
+      font-size: 28px;
+      line-height: 36px;
     }
   }
 }
