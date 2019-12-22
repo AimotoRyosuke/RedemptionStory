@@ -42,7 +42,7 @@ set :linked_dirs, fetch(:linked_dirs, []).push('log', 'tmp/pids', 'tmp/cache', '
 
 # Uncomment the following to require manually verifying the host key before first deploy.
 set :ssh_options, auth_methods: ['publickey'],
-                  keys: ['~/.ssh/RedemptonStory.pem']
+                  keys: ['~/.ssh/RedemptionStory.pem']
 
 # プロセス番号を記載したファイルの場所
 set :unicorn_pid, -> { "#{shared_path}/tmp/pids/unicorn.pid" }
