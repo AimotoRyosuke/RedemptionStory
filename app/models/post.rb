@@ -1,6 +1,7 @@
 class Post < ApplicationRecord
   validates :title, :text, :date, :images, presence: true
   has_many :images, dependent: :destroy
+  has_many :likes, dependent: :destroy
   belongs_to :user
   accepts_nested_attributes_for :images
 

@@ -33,6 +33,8 @@ class PostsController < ApplicationController
 
   def show
     @post = Post.find(params[:id])
+    @likes = Like.where(post_id: params[:id])
+    @like = Like.find_by(user_id: current_user.id)
   end
 
   def destroy

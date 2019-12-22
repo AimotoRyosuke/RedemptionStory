@@ -37,6 +37,9 @@
           cursor: pointer;
           color: rgb(243, 31, 148);
         }
+        &__hidden {
+          display: none;
+        }
       }
     }
     &__right {
