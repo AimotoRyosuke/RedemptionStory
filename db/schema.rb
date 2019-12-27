@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_12_18_100546) do
+ActiveRecord::Schema.define(version: 2019_12_22_075951) do
 
   create_table "images", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.text "image"
@@ -18,6 +18,15 @@ ActiveRecord::Schema.define(version: 2019_12_18_100546) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["post_id"], name: "index_images_on_post_id"
+  end
+
+  create_table "likes", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "post_id", null: false
+    t.bigint "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["post_id"], name: "index_likes_on_post_id"
+    t.index ["user_id"], name: "index_likes_on_user_id"
   end
 
   create_table "posts", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -30,12 +39,21 @@ ActiveRecord::Schema.define(version: 2019_12_18_100546) do
     t.index ["user_id"], name: "index_posts_on_user_id"
   end
 
+  create_table "sns_auths", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "provider", null: false
+    t.string "uid", null: false
+    t.bigint "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_sns_auths_on_user_id"
+  end
+
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "nickname", null: false
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "sex", null: false
-    t.date "birth", null: false
+    t.date "birth", default: "2019-12-24"
     t.text "image"
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
@@ -47,5 +65,7 @@ ActiveRecord::Schema.define(version: 2019_12_18_100546) do
   end
 
   add_foreign_key "images", "posts"
+  add_foreign_key "likes", "posts"
+  add_foreign_key "likes", "users"
   add_foreign_key "posts", "users"
 end

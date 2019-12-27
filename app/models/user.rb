@@ -6,4 +6,5 @@ class User < ApplicationRecord
   
   validates :nickname, :sex, presence: true
   has_many :posts
+  has_many :likes, dependent: :destroy
 end
