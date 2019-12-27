@@ -15,7 +15,7 @@
       .header__menu
         - unless user_signed_in?
           = link_to "ログイン", new_user_session_path
-          = link_to "新規登録", new_user_registration_path
+          = link_to "新規登録", select_users_path
         - else
           = link_to "こんにちは"+current_user.nickname+"さん",""
           = link_to "ログアウト", destroy_user_session_path, method: :delete
