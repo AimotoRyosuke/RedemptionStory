@@ -5,7 +5,7 @@ set :application, "RedemptionStory"
 set :repo_url,  'git@github.com:AimotoRyosuke/RedemptionStory.git'
 
 # Default branch is :master
-set :branch, 'deploy'
+# set :branch, 'deploy'
 
 # ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp
 
