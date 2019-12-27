@@ -1,7 +1,7 @@
 $(function(){
   function appendLike(likes){
     like = `
-          <form class="show__content__left__like like" action="/posts/3/likes/${likes.user_id}" accept-charset="UTF-8" data-remote="true" method="delete">
+          <form class="show__content__left__like like" action="/posts/${likes.post_id}/likes/${likes.user_id}" accept-charset="UTF-8" data-remote="true" method="delete">
             <input name="utf8" type="hidden" value="✓">
             <input type="hidden" name="authenticity_token" value="XBlI/nAe5vR8Q+zAnMogXuu3MDxpLeQ1JiMIG65m1JiVBaVTMgzqLSBoHgbxq2jgWp7IOHV37H46URMDjyFplg==">
             <input type="submit" name="commit" value="submit" class="show__content__left__like__hidden" id="like" data-disable-with="submit">
@@ -14,7 +14,7 @@ $(function(){
 
   function appendUnlike(likes){
     unlike = `
-          <form class="show__content__left__like unlike" action="/posts/3/likes" accept-charset="UTF-8" method="post">
+          <form class="show__content__left__like unlike" action="/posts/${likes.post_id}/likes" accept-charset="UTF-8" method="post">
             <input name="utf8" type="hidden" value="✓">
             <input type="hidden" name="authenticity_token" value="XBlI/nAe5vR8Q+zAnMogXuu3MDxpLeQ1JiMIG65m1JiVBaVTMgzqLSBoHgbxq2jgWp7IOHV37H46URMDjyFplg==">
             <input type="submit" name="commit" value="submit" class="show__content__left__like__hidden" id="unlike" data-disable-with="submit">
