@@ -3,9 +3,18 @@
     %h1.show__content__title=@post.date
     .show__content__left
       = image_tag "banner.jpg", class: "show__content__left__image"
-      .show__content__left__like 
-        = icon "fas", "heart", class: "show__content__left__like__icon"
-        %p.show__content__left__like__nubmer 123
+      - if @like.blank?
+        = form_with url: post_likes_path(@post),local: true, class: "show__content__left__like unlike" do |f|
+          = f.submit "submit", class: "show__content__left__like__hidden", id: "unlike"
+          = f.label :unlike do
+            = icon "far", "heart", class: "show__content__left__like__icon"
+          %p.show__content__left__like__nubmer= @likes.length
+      - else
+        = form_with url: post_like_path(@post, current_user),local: true, class: "show__content__left__like like" do |f|
+          = f.submit "submit", class: "show__content__left__like__hidden", id: "like"
+          = f.label :like do
+            = icon "fas", "heart", class: "show__content__left__like__icon"
+          %p.show__content__left__like__nubmer= @likes.length
     .show__content__right
       %h2.show__content__right__title=@post.title
       .show__content__right__tag
@@ -14,14 +23,14 @@
       .show__content__right__box
         %p.show__content__right__user=@post.user.nickname
         %p.show__content__right__sex=@post.user.sex
-        %p.show__content__right__age=@post.age + "歳（当時）"
+        %p.show__content__right__age=@post.age + "歳（投稿時）"
       %p.show__content__right__text=@post.text
   .show__comment
     %p.show__comment__title コメント
     .show__comment__box
       %p コメント1
-      %pコメント2
-      %pコメント3
+      %p コメント2
+      %p コメント3
     .show__comment__new
       %textarea.show__comment__new__input
       %input(type="submit" value="コメントする" class="show__comment__new__submit")

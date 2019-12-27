@@ -49,6 +49,9 @@ gem 'font-awesome-sass', '~> 5.4.1'
 gem 'bootsnap', '>= 1.1.0', require: false
 
 gem 'devise'
+gem 'omniauth'
+gem 'omniauth-google-oauth2'
+gem 'omniauth-facebook'
 
 gem 'carrierwave'
 gem 'fog-aws'
