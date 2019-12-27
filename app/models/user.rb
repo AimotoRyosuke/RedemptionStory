@@ -8,6 +8,7 @@ class User < ApplicationRecord
   validates :nickname, :sex, presence: true
   has_many :posts
   has_many :sns_auths, dependent: :destroy
+  has_many :likes, dependent: :destroy
 
   def self.without_sns_data(auth)
     user = User.where(email: auth.info.email).first
@@ -55,5 +56,5 @@ class User < ApplicationRecord
     end
     return { user: user ,sns: sns}
   end
-
+  
 end
