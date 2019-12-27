@@ -15,7 +15,7 @@ class PostsController < ApplicationController
     if @post.save
       redirect_to root_path
     else
-      render new
+      render :new
     end
   end
 
@@ -27,7 +27,7 @@ class PostsController < ApplicationController
     if Post.update
       redirect_to root_path
     else
-      render edit
+      render :edit
     end
   end
 
@@ -42,7 +42,7 @@ class PostsController < ApplicationController
     if @post.delete
       redirect_to root_path
     else
-      render show
+      render :show
     end
   end
 
