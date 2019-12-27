@@ -2,7 +2,7 @@
   .show__content
     %h1.show__content__title=@post.date
     .show__content__left
-      = image_tag "banner.jpg", class: "show__content__left__image"
+      = image_tag "banner.jpeg", class: "show__content__left__image"
       - if @like.blank?
         = form_with url: post_likes_path(@post),local: true, class: "show__content__left__like unlike" do |f|
           = f.submit "submit", class: "show__content__left__like__hidden", id: "unlike"
