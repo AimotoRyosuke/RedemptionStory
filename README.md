@@ -70,7 +70,7 @@
 
 #### assosiation
 ---
-## post-tags table
+## post_tags table
 |Column|Type|Options|
 |------|----|-------|
 |tag_id|references|null: false, foreign_key: true|

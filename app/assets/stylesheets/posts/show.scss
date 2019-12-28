@@ -23,7 +23,7 @@
       &__like {
         height: 60px;
         width: 80px;
-        background-color: rgba(206, 206, 206, 0.5);
+        background-color: rgba(206, 206, 206, 0.9);
         display: flex;
         align-items: center;
         justify-content: center;
@@ -79,7 +79,7 @@
       }
     }
   }
-  &__comment {
+  &__comments {
     margin: 40px 0;
     &__title {
       width: 100%;
@@ -91,14 +91,59 @@
     }
     &__box {
       margin: 0 50px;
-      p {
-        padding: 10px;
+      width: 100%;
+      &__comment {
+        margin-bottom: 15px;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: flex-start;
+        position: relative;
+        &__img {
+          height: 60px;
+          width: 60px;
+          border-radius: 50%;
+        }
+        &__user {
+          position: absolute;
+          left: 70px;
+        }
+        &__text {
+          margin: 17px 10px 0 10px;
+          padding: 12px;
+          max-width: 636px;
+          border-radius: 12px;
+          background: #cff0d7;
+          position: relative; 
+        }
+        &__text:after {
+          content: "";
+          position: absolute;
+          top: 3px; 
+          left: -19px;
+          border: 8px solid transparent;
+          border-right: 18px solid #cff0d7;
+          -webkit-transform: rotate(35deg);
+          transform: rotate(35deg);
+        }
+        .current {
+          background: #5adb61;
+        }
+        .current:after {
+          border-right: 18px solid #5adb61;
+        }
+        &__date{
+          font-size: 12px;
+          color: #333;
+          align-self: flex-end;
+        }
       }
     }
     &__new {
       width: 800px;
       margin: 20px auto 0;
       &__input {
+        padding: 10px;
+        box-sizing: border-box;
         width: 800px;
         min-height: 100px;
         resize: vertical; 
