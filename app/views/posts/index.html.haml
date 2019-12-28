@@ -19,7 +19,7 @@
             %p タグ２
           .wrapper__posts__post__bottom
             %p.wrapper__posts__post__bottom__user=post.user.nickname
-            %p.wrapper__posts__post__bottom__date=post.created_at
+            %p.wrapper__posts__post__bottom__date=post.created_at.strftime("%Y/%m/%d %H:%M")
   .wrapper__more
     %p.wrapper__more__text もっと見る
     = icon "fas", "angle-double-right", class: "wrapper__more__icon"

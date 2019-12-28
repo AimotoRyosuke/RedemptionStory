@@ -3,7 +3,8 @@ Rails.application.routes.draw do
   root to: 'posts#index'
   resources :posts do
     resources :images, only: [:create, :destroy]
-    resources :likes, only: [:create, :destroy],  defaults: { format: 'json' }
+    resources :likes, only: [:create, :destroy], defaults: { format: 'json' }
+    resources :comments, only: [:create, :destroy], defaults: { format: 'json' }
   end
   resources :users do
     collection do

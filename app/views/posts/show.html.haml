@@ -2,7 +2,7 @@
   .show__content
     %h1.show__content__title=@post.date
     .show__content__left
-      = image_tag "banner.jpeg", class: "show__content__left__image"
+      = image_tag @post.images[0].image.url, class: "show__content__left__image"
       - if @like.blank?
         = form_with url: post_likes_path(@post),local: true, class: "show__content__left__like unlike" do |f|
           = f.submit "submit", class: "show__content__left__like__hidden", id: "unlike"
@@ -25,12 +25,22 @@
         %p.show__content__right__sex=@post.user.sex
         %p.show__content__right__age=@post.age + "歳（投稿時）"
       %p.show__content__right__text=@post.text
-  .show__comment
-    %p.show__comment__title コメント
-    .show__comment__box
-      %p コメント1
-      %p コメント2
-      %p コメント3
-    .show__comment__new
-      %textarea.show__comment__new__input
-      %input(type="submit" value="コメントする" class="show__comment__new__submit")
+  .show__comments
+    %p.show__comments__title コメント
+    .show__comments__box
+      - @comments.each do |comment|
+        - if current_user.id == comment.user_id
+          .show__comments__box__comment
+            = image_tag comment.user.image.url, class: "show__comments__box__comment__img"
+            %p.show__comments__box__comment__user=comment.user.nickname
+            %p.show__comments__box__comment__text.current=comment.text
+            %p.show__comments__box__comment__date= comment.created_at.strftime("%Y/%m/%d %H:%M")
+        - else
+          .show__comments__box__comment
+            = image_tag comment.user.image.url, class: "show__comments__box__comment__img"
+            %p.show__comments__box__comment__user=comment.user.nickname
+            %p.show__comments__box__comment__text=comment.text
+            %p.show__comments__box__comment__date= comment.created_at.strftime("%Y/%m/%d %H:%M")
+    = form_with url: post_comments_path(@post), local: true, class: "show__comments__new" do |f|
+      = f.text_area :text, placeholder: "コメントを入力してください（最大３００字まで）", class: "show__comments__new__input"
+      = f.submit "コメントする", class: "show__comments__new__submit"

@@ -3,15 +3,17 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background: image-url("banner.jpeg") center center / cover;
+  background: image-url("banner.jpg") center center / cover;
   &__inner {
-    background-color: rgba(297, 297, 297, 50%);
     width: 700px;
     padding: 20px 0;
     &__title {
       display: flex;
       flex-direction: column;
       margin-bottom: 60px;
+      padding: 15px 0;
+      border-radius: 50px;
+      background-color: rgba(297,297,297, .8);
       &__main {
         display: inline-block;
         margin: 0 auto 15px;
@@ -60,7 +62,7 @@
     margin-bottom: 50px;
   }
   &__posts {
-    max-height: 975px;
+    max-height: 1110px;
     width: 1195px;
     margin-top: 30px;
     display: flex;
@@ -68,17 +70,17 @@
     margin: 0 auto;
     overflow: hidden;
     &__post {
-      height: 300px;
-      width: 280px;
-      margin: 0 25px 25px 0;
+      height: 340px;
+      width: 250px;
+      margin: 0 65px 40px 0;
       box-shadow: 0 2px 4px rgba(0,0,0,.18);
       a {
         text-decoration: none;
         color: black;
       }
       &__img {
-        height: 210px;
-        width: 280px;
+        height: 250px;
+        width: 250px;
       }
       &__title {
         display: inline-block;

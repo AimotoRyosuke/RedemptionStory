@@ -35,6 +35,7 @@ class PostsController < ApplicationController
     @post = Post.find(params[:id])
     @likes = Like.where(post_id: params[:id])
     @like = Like.find_by(user_id: current_user.id)
+    @comments = Comment.where(post_id: params[:id])
   end
 
   def destroy
