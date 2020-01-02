@@ -6,7 +6,7 @@ class User < ApplicationRecord
          :omniauthable, omniauth_providers: %i[facebook google_oauth2]
   
   mount_uploader :image, ImagesUploader
-  validates :nickname, :sex, presence: true
+  validates :nickname, :gender, :birthday, presence: true
   has_many :posts
   has_many :sns_auths, dependent: :destroy
   has_many :likes, dependent: :destroy

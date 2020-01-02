@@ -18,11 +18,11 @@
     .show__content__right
       %h2.show__content__right__title=@post.title
       .show__content__right__tag
-        %p タグ1
-        %p タグ2
+        %p.show__content__right__tag__part タグ1
+        %p.show__content__right__tag__part タグ2
       .show__content__right__box
         %p.show__content__right__user=@post.user.nickname
-        %p.show__content__right__sex=@post.user.sex
+        %p.show__content__right__gender=@post.user.gender
         %p.show__content__right__age=@post.age + "歳（投稿時）"
       %p.show__content__right__text=@post.text
   .show__comments

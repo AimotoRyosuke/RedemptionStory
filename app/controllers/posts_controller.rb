@@ -8,6 +8,7 @@ class PostsController < ApplicationController
   def new
     @post = Post.new
     @post.images.build
+    @post.tags.build
   end
 
   def create
@@ -15,6 +16,8 @@ class PostsController < ApplicationController
     if @post.save
       redirect_to root_path
     else
+      @post.images.build
+      @post.tags.build
       render :new
     end
   end
@@ -50,7 +53,7 @@ class PostsController < ApplicationController
   private
 
   def post_params
-    params.require(:post).permit(:title, :date, :text, images_attributes:[:image]).merge(user_id: current_user.id)
+    params.require(:post).permit(:title, :date, :text, tags_attributes:[:name], images_attributes:[:image]).merge(user_id: current_user.id)
   end
-
+    
 end

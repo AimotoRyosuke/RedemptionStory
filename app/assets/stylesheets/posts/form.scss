@@ -2,6 +2,7 @@
   &__category {
     display: flex;
     justify-content: space-around;
+    flex-wrap: wrap;
     margin-top: 50px;
     &__name {
       font-size: 18px;
@@ -13,11 +14,14 @@
       padding: 0 15px;
       box-sizing: border-box;
       height: 40px;
+      border: 2px solid  #8f55087e;
+
       &--date {
         width: 130px;
-        margin-right: 400px;
         padding-left: 20px;
         height: 40px;
+        border: 2px solid  #8f55087e;
+
       }
       &--text {
         width: 550px;
@@ -25,6 +29,53 @@
         min-height: 100px;
         box-sizing: border-box;
         resize: vertical;
+        border: 2px solid  #8f55087e;
+
+      }
+    }
+    &__today {
+      height: 40px;
+      width: 80px;
+      margin-right: 282px;
+      text-align: center;
+      line-height: 40px;
+      background-color: #8f55087e;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    &__today:active {
+      background-color: #c59a6193;
+    }
+    &__tag {
+      padding-top: 15px;
+      margin-left: 120px;
+      width: 540px;
+      display: flex;
+      flex-wrap: wrap;
+      .tag-box {
+        display: flex;
+      }
+      &__show {
+        min-width: 5px;
+        display: inline-block;
+        padding: 3px 8px;
+        margin-bottom: 5px;
+        border: none;
+        background-color: #cff0d7;
+        border-top-left-radius: 5px;
+        border-bottom-left-radius: 5px;
+      }
+      &__hidden {
+        display: none;
+      }
+      &__delete {
+        background-color: #cff0d7;
+        margin: 0 10px 5px 0;
+        padding: 4px 8px;
+        border-left: 2px solid #b3ebc1;
+        border-top-right-radius: 5px;
+        border-bottom-right-radius: 5px;
+        cursor: default;
       }
     }
   }
