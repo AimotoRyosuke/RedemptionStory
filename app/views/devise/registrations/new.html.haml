@@ -7,10 +7,10 @@
       = f.text_field :nickname, autofocus: true , class: 'signup__form__group__input'
     .signup__form__group
       .signup__form__group__name 性別 *必須
-      = f.select :sex, ['男性', '女性'], {include_blank: '選択してください'}, class: 'signup__form__group__input'
+      = f.select :gender, ['男性', '女性'], {include_blank: '選択してください'}, class: 'signup__form__group__input'
     .signup__form__group
       .signup__form__group__name 生年月日 *必須
-      != sprintf(f.date_select(:birthday, prefix:'birthday',with_css_classes:'XXXXX', prompt:"--",use_month_numbers:true, start_year:Time.now.year, end_year:1930, date_separator:'%s'),'年','月')+'日'
+      != sprintf(f.date_select(:birthday, prefix:'user',with_css_classes:'XXXXX', prompt:"--",use_month_numbers:true, start_year:Time.now.year, end_year:1930, date_separator:'%s'),'年','月')+'日'
     .signup__form__group
       .signup__form__group__name メールアドレス *必須
       = f.email_field :email, autofocus: true, autocomplete: "email", class: 'signup__form__group__input'

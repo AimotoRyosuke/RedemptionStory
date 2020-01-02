@@ -7,8 +7,8 @@
 |email|string|null: false|
 |password|string|null: false|
 |image|string|null: false|
-|sex|string|null: false|
-|birth|date|null: false|
+|gender|string|null: false|
+|birthday|date|null: false|
 
 #### assosiation
 ---
