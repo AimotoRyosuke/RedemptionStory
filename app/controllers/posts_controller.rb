@@ -2,7 +2,7 @@ class PostsController < ApplicationController
   before_action :post_params, only: [:create, :update,]
 
   def index
-    @posts = Post.all.order("id desc").limit(12)
+    @posts = Post.includes(:tags).all.order("id desc").limit(12)
   end
   
   def new

@@ -1,4 +1,8 @@
 $(function(){
+  $('.slick').slick({
+    autoplay:false,
+    dots:true,
+  });
   let i = $(".form__category__image").find(".form__category__image__box__show").length + 1;
   $(document).on("change", ".form__category__image__box", function(e){
     let t = this;
