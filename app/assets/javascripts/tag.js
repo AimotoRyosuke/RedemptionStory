@@ -1,11 +1,7 @@
 $(function(){
-  let i = 0;
-  $(".form__category__input").keypress(function(e){
-    console.log(e)
-    console.log(e.which)
+  let i = 50;
+  $("#tag").keypress(function(e){
     if(e.which == 13 && $("#tag").val() == 0){
-      console.log(e)
-      console.log(e.which)
       e.preventDefault();
     } else if(e.which == 13){
       e.preventDefault();
@@ -22,6 +18,6 @@ $(function(){
   });
 
   $(document).on('click', '.form__category__tag__delete', function(){
-    let tag = $(this).parent().remove();
+    $(this).parent().remove();
   });
 });

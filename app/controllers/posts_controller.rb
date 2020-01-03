@@ -2,7 +2,7 @@ class PostsController < ApplicationController
   before_action :post_params, only: [:create, :update,]
 
   def index
-    @posts = Post.all.order("id desc").limit(12)
+    @posts = Post.includes(:tags).all.order("id desc").limit(12)
   end
   
   def new
@@ -27,7 +27,7 @@ class PostsController < ApplicationController
   end
 
   def update
-    if Post.update
+    if Post.update(update_post_params)
       redirect_to root_path
     else
       render :edit
@@ -54,6 +54,10 @@ class PostsController < ApplicationController
 
   def post_params
     params.require(:post).permit(:title, :date, :text, tags_attributes:[:name], images_attributes:[:image]).merge(user_id: current_user.id)
+  end
+
+  def update_post_params
+    params.require(:post).permit(:title, :date, :text, tags_attributes:[:name], images_attributes:[:image, :_destroy, :id]).merge(user_id: current_user.id)
   end
     
 end

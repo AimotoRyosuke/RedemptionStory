@@ -7,8 +7,7 @@
     = csp_meta_tag
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
-    %script{src: "//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js", type: "text/javascript"}
-    %script{src: "https://js.pay.jp/", type: "text/javascript"}
+    %script{src: "//cdn.jsdelivr.net/npm/slick-carousel@1.9.0/slick/slick.min.js", type: "text/javascript"}
   %body
     %header.header
       = link_to "もらいモノがたり", root_path, class: "header__title もらいモノがたり"
@@ -17,7 +16,7 @@
           = link_to "ログイン", new_user_session_path
           = link_to "新規登録", select_users_path
         - else
-          = link_to "こんにちは"+current_user.nickname+"さん",""
+          = link_to "こんにちは、"+current_user.nickname+"さん",""
           = link_to "ログアウト", destroy_user_session_path, method: :delete
     = yield
     %footer.footer

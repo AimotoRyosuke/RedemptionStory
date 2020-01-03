@@ -1,3 +1,6 @@
+.slick-dots {
+  display: none !important;
+}
 .show {
   width: 900px;
   margin: 40px auto 100px;
@@ -13,12 +16,31 @@
       margin-bottom: 20px;
     }
     &__left {
-      height: 500px;
       width: 500px;
       position: relative;
-      &__image {
+      &__images {
         height: 500px;
-        width: 500px;
+        width: 100%;
+        &__image {
+          height: 500px;
+          width: 500px;
+        }
+      }
+      &__select {
+        display: flex;
+        justify-content: center;
+        &__image {
+          height: 100px;
+          width: 100px;
+          background-color: rgb(206, 206, 206) !important;
+          opacity: .7;
+          cursor: pointer;
+          transition: 5s;
+        }
+        &__image:active {
+          opacity: 1;
+          transition: 0s;
+        }
       }
       &__like {
         height: 60px;
@@ -28,7 +50,7 @@
         align-items: center;
         justify-content: center;
         position: absolute;
-        bottom: 0;
+        bottom: 120px;
         right: 0;
         z-index: 1;
         &__icon {
