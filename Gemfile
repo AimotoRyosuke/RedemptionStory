@@ -51,6 +51,8 @@ gem 'omniauth'
 gem 'omniauth-google-oauth2'
 gem 'omniauth-facebook'
 
+gem 'rakuten_web_service'
+
 gem 'mini_magick'
 gem 'carrierwave'
 gem 'fog-aws'
