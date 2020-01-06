@@ -12,6 +12,7 @@ class PostsController < ApplicationController
   end
 
   def create
+    binding.pry
     @post = Post.new(post_params)
     if @post.save
       redirect_to root_path
@@ -37,7 +38,7 @@ class PostsController < ApplicationController
   def show
     @post = Post.find(params[:id])
     @likes = Like.where(post_id: params[:id])
-    @like = Like.find_by(user_id: current_user.id)
+    @like = Like.find_by(user_id: current_user.id, post_id: params[:id])
     @comments = Comment.where(post_id: params[:id])
   end
 
@@ -55,10 +56,6 @@ class PostsController < ApplicationController
     @keyword = params[:keyword]
   end
 
-  def amazon_search
-
-  end
-
   private
 
   def post_params
@@ -68,5 +65,4 @@ class PostsController < ApplicationController
   def update_post_params
     params.require(:post).permit(:title, :date, :text, tags_attributes:[:name], images_attributes:[:image, :_destroy, :id]).merge(user_id: current_user.id)
   end
-    
 end

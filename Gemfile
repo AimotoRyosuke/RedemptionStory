@@ -15,8 +15,6 @@ gem 'rails-i18n'
 
 gem 'kaminari'
 
-gem 'breadcrumbs_on_rails'
-
 # Use Puma as the app server
 gem 'puma', '~> 3.12'
 # Use Uglifier as compressor for JavaScript assets
