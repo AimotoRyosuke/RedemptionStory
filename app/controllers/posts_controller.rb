@@ -50,6 +50,15 @@ class PostsController < ApplicationController
     end
   end
 
+  def rakuten_search
+    @items = RakutenWebService::Ichiba::Item.search(keyword: params[:keyword]).first(10)
+    @keyword = params[:keyword]
+  end
+
+  def amazon_search
+
+  end
+
   private
 
   def post_params
