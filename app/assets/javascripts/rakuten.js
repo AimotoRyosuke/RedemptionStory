@@ -34,7 +34,7 @@ $(function(){
     let html = `
                 <li class="site__rakuten-result__list__category__images__list">
                   <label for="${id}-${index}"><img src="${image}", class="site__rakuten-result__list__category__images__list__image"></label>
-                  <input class="site__amazon-result__images__list__image__checkbox" id="${id}-${index}" type="checkbox" value="${image}" name="checkbox">
+                  <input class="site__rakuten-result__images__list__image__checkbox" id="${id}-${index}" type="checkbox" value="${image}" name="checkbox">
                 </li>
                 `
     $(".site__rakuten-result__list__category__images:last").append(html)
@@ -82,17 +82,10 @@ $(function(){
     $('.right').animate({ scrollTop: $('#rakuten')[0].scrollHeight})
   });
 
-  $(".btn__amazon-search").click(function(){
-    console.log($('.site:first-child')[0].scrollHeight)
-    $('.right').animate({ scrollTop: $('.site:first-child')[0].scrollHeight})
-    // $(".right").scrollTop($('.site:first-child')[0].scrollHeight)
-  });
   $(".btn__rakuten-delete").click(function(){
     $(".site__rakuten-result").empty();
   });
-  $(".btn__amazon-delete").click(function(){
-    $(".site__amazon-result").empty();
-  });
+
   $(".btn__check-delete").click(function(){
     $("input:checked").prop("checked", false);
   });

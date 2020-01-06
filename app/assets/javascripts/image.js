@@ -14,12 +14,12 @@ $(function(){
     $(".form__category__image").append(next);
   }
 
-  function appendCheckImage(url){
+  function appendCheckedImage(url){
     let image = `
                 <li class="form__category__image__box">
                   <img src="${url}" class="form__category__image__box__show">
-                  <input name="post[images_attributes][${i}][image]" class="form__category__image__box__hidden" accept="image/*" type="file" id="post_images_attributes_${i}_image">
-                  <label class="form__category__image__box__change" for="post_images_attributes_${i}_image">変更</label><p class="form__category__image__box__delete">削除</p></li>
+                  <input name="post[images_attributes][${i}][image]" class="form__category__image__box__hidden" accept="image/*" type="file" id="post_images_attributes_${i}_image" value="${url}">
+                  <p class="form__category__image__box__delete">削除</p></li>
                 `
     $(".form__category__image").append(image);
   }
@@ -61,12 +61,11 @@ $(function(){
     if($("input:checked").length+$(".form__category__image__box__show").length > 5){
       alert("5枚を超えるため、処理に失敗しました")
     } else {
-      console.log($(".form__category__image__box__input").parent());
       $(".form__category__image__box__input").parent().remove();
       $('html, body').animate({ scrollTop: $('.left')[0].scrollHeight-300})
       $("input:checked").each(function(){
         let url = ($(this).val());
-        appendCheckImage(url);
+        appendCheckedImage(url);
         $(this).prop("checked", false);
         i += 1;
       })

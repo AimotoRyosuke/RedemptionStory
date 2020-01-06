@@ -1,8 +1,0 @@
-.site
-  %h3.site__title Amazonのアイテムを利用する
-  = form_with url: amazon_posts_path, class: "site__form", id: "amazon", method: :get, local: true do |f|
-    = f.text_field :keyword, class:"site__form__keyword", id: "amazon-keyword", placeholder: "キーワードを入力してください"
-    = f.submit "送信", class: "site__form__submit", id: "amazon-submit"
-    = f.label "amazon-submit", class: "site__form__submit-show" do
-      = icon "fas", "search"
-  %ul.site__amazon-result
