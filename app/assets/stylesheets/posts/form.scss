@@ -6,7 +6,7 @@
     margin-top: 50px;
     &__name {
       font-size: 18px;
-      width: 80px;
+      width: 90px;
       align-self: center;
     }
     &__input {
@@ -15,12 +15,14 @@
       box-sizing: border-box;
       height: 40px;
       border: 2px solid  #8f55087e;
-
+      background-color: #fff;
+      border-radius: 5px;
       &--date {
         width: 130px;
         padding-left: 20px;
         height: 40px;
         border: 2px solid  #8f55087e;
+        border-radius: 5px;
       }
       &--text {
         width: 550px;
@@ -29,6 +31,7 @@
         box-sizing: border-box;
         resize: vertical;
         border: 2px solid  #8f55087e;
+        border-radius: 5px;
       }
     }
     &__image {

@@ -4,7 +4,7 @@ class ApplicationController < ActionController::Base
 
   protected
   def  configure_permitted_parameters
-    if devise_parameter_sanitizer.instance_values.values[1][:action] == "create"
+    if devise_parameter_sanitizer.instance_values.values[1][:action] == "create" && devise_parameter_sanitizer.instance_values.values[1][:controller] == "devise/registrations"
       birthday = devise_parameter_sanitizer.instance_values.values[1][:user]['birthday(1i)'] + "%02d" % devise_parameter_sanitizer.instance_values.values[1][:user]['birthday(2i)'].to_i + "%02d" % devise_parameter_sanitizer.instance_values.values[1][:user]['birthday(3i)'].to_i
       devise_parameter_sanitizer.instance_values.values[1][:user][:birthday] = birthday
       devise_parameter_sanitizer.permit(:sign_up, keys: [:nickname, :gender, :birthday, :image])

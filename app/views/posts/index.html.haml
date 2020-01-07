@@ -1,13 +1,15 @@
 %section.banner
-  .banner__inner
-    .banner__inner__title
-      %h2.banner__inner__title__main もらいもの　×　ものがたり
-      .banner__inner__title__sub プレゼントでもらったものを、体験と一緒に紹介するサイト
-    .banner__inner__content
-      .banner__inner__content__look
-        %p.banner__inner__content__look__inner ものがたりを見る
-      = link_to new_post_path, class: "banner__inner__content__post" do
-        %p.banner__inner__content__post__inner ものがたりを投稿する
+  .banner__left
+    %h2.banner__left__title-main もらいもの　×　ものがたり
+    %h3.banner__left__title-sub 
+      プレゼントでもらったものを、
+      %br/
+      体験と一緒に紹介するサイト
+  .banner__right
+    .banner__right__look
+      %p.banner__right__look__inner ものがたりを見る
+    = link_to new_post_path, class: "banner__right__post" do
+      %p.banner__right__post__inner ものがたりを投稿する
 %section.wrapper
   .wrapper__title 新着投稿
   %ul.wrapper__posts
