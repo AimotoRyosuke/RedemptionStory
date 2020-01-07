@@ -3,6 +3,9 @@
     %p.form__category__name タイトル
     = f.text_field :title, class: "form__category__input", placeholder: "ものがたりのタイトルを入力してください"
   .form__category
+    %p.form__category__name カテゴリー
+    = f.collection_select :category_id, Category.all, :id, :name, {prompt: '---'}, {class: 'form__category__input'}
+  .form__category
     %p.form__category__name タグ
     = f.text_field :tag, class: "form__category__input", id: "tag", placeholder: "商品に関するタグを入力してEnterを押してください"
     %ul.form__category__tag
