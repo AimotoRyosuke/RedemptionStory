@@ -9,6 +9,12 @@
     -if mypage?
       = link_to "変更する", edit_user_registration_path, class: "user-page__left__edit"
       = link_to "削除する", user_registration_path, class: "user-page__left__delete", method: :delete, "data-confirm": "ユーザー情報を削除します。本当によろしいですか？"
+    -else
+      .follow-status
+        -if !current_user.following?(@user)
+          %p.user-page__left__follow#follow{"data-url": follow_user_path(@user)} フォロー
+        -else
+          %p.user-page__left__unfollow#unfollow{"data-url": unfollow_user_path(@user)} フォロー中
   .user-page__right
     -if mypage?
       .user-page__right__category
@@ -25,10 +31,10 @@
       %p.user-page__right__category__content=@user.birthday.strftime("%Y年%m月%d日")
     .user-page__right__category
       %p.user-page__right__category__name フォロー：
-      = link_to @user.posts.count.to_s + "人", "", class: "user-page__right__category__content"
+      = link_to @user.follow_count.to_s + "人", followlist_user_path(@user), class: "user-page__right__category__content"
     .user-page__right__category
       %p.user-page__right__category__name フォロワー：
-      = link_to @user.posts.count.to_s + "人", "", class: "user-page__right__category__content"
+      = link_to @user.followers_count.to_s + "人", followerlist_user_path(@user), class: "user-page__right__category__content"
   .user-page__post
     %h3.user-page__post__title 投稿一覧
     %ul.user-page__post__list
