@@ -12,5 +12,11 @@ Rails.application.routes.draw do
     collection do
       get 'menu', to: 'users#signup_menu'
     end
+    member do
+      put "follow", to: 'users#follow', defaults: { format: 'json' }
+      put "unfollow", to: 'users#unfollow', defaults: { format: 'json' }
+      get "followlist", to: "users#followlist"
+      get "followerlist", to: "users#followerlist"
+    end
   end
 end

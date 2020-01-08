@@ -1,0 +1,87 @@
+#follow,#unfollow {
+  cursor: pointer;
+}
+.follow,.follower {
+  width: 700px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  &__title {
+    height: 100px;
+    width: 100%;
+    line-height: 70px;
+    text-align: flex-end;
+    font-size: 22px;
+    padding: 20px;
+    box-sizing: border-box;
+  }
+  &__list {
+    height: 150px;
+    padding: 15px 15px;
+    border-top: 1px solid #eee;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    &__image {
+      height: 120px;
+      width: 120px;
+      border-radius: 50%;
+      padding: 15px;
+    }
+    &__top {
+      height: 25px;
+      margin-top: 30px;
+      display: flex;
+      align-items: center;
+      &__nickname {
+        margin-right: 15px;
+        font-size: 20px;
+        color: #111111;
+        text-decoration: none;
+      }
+      &__nickname:hover {
+        opacity: .7;
+      }
+      &__follow {
+        display: inline-block;
+        text-decoration: none;
+        width: 76px;
+        text-align: center;
+        line-height: 26px;
+        color: #000;
+        background-color: #fff;
+        border: 2px solid #cff0d7;
+        border-radius: 4px;
+      }
+      &__unfollow {
+        display: inline-block;
+        text-decoration: none;
+        width: 80px;
+        text-align: center;
+        line-height: 30px;
+        color: #000;
+        background-color: #cff0d7;
+        border-radius: 4px;
+      }
+      &__follow:hover, &__unfollow:hover {
+        opacity: .7;
+      }
+    }
+    &__bottom {
+      margin-top: 25px;
+      font-size: 16px;
+      display: flex;
+      &__info {
+        display: flex;
+        margin-right: 15px;
+        &__content {
+          color: #0099e8;
+          text-decoration: none;
+        }
+        &__content:hover {
+          opacity: .7;
+        }
+      }
+    }
+  }
+}

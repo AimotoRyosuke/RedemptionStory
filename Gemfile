@@ -33,6 +33,7 @@ gem 'jbuilder', '~> 2.5'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
+gem 'acts_as_follower', github: 'tcocca/acts_as_follower', branch: 'master'
 
 gem 'haml-rails'
 

@@ -5,8 +5,10 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable,
          :omniauthable, omniauth_providers: %i[facebook google_oauth2]
   
-  mount_uploader :image, ImagesUploader
   validates :nickname, :gender, :birthday, presence: true
+  mount_uploader :image, ImagesUploader
+  acts_as_followable
+  acts_as_follower
   has_many :posts, dependent: :destroy
   has_many :sns_auths, dependent: :destroy
   has_many :likes, dependent: :destroy

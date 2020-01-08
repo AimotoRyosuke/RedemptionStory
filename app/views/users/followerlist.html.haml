@@ -1,0 +1,25 @@
+%ul.follower
+  %h3.follower__title=@user.nickname + "のフォロワー"
+  - @user.followers.each do |follower|
+    %li.follower__list
+      = image_tag follower.image.url, class: "follower__list__image"
+      .follower__list__top
+        = link_to follower.nickname, user_path(follower), class: "follower__list__top__nickname"
+        -if current_user.id == follower.id
+        -elsif !current_user.following?(follower)
+          %p.follow__list__top__follow#follow{"data-url": follow_user_path(follower)} フォロー
+        -else
+          %p.follow__list__top__unfollow#unfollow{"data-url": unfollow_user_path(follower)} フォロー中
+      .follower__list__bottom
+        .follower__list__bottom__info
+          %p.follower__list__bottom__info__name 投稿：
+          = link_to follower.posts.length.to_s + "件", user_path(follower), class: "follower__list__bottom__info__content"
+        .follower__list__bottom__info
+          %p.follower__list__bottom__info__name お気に入り：
+          = link_to follower.likes.length.to_s + "件", user_path(@user), class: "follower__list__bottom__info__content"
+        .follower__list__bottom__info
+          %p.follower__list__bottom__info__name フォロー：
+          = link_to follower.follow_count.to_s + "人", followlist_user_path(follower), class: "follower__list__bottom__info__content"
+        .follower__list__bottom__info
+          %p.follower__list__bottom__info__name フォロワー：
+          = link_to follower.followers_count.to_s + "人", followerlist_user_path(follower), class: "follower__list__bottom__info__content"
