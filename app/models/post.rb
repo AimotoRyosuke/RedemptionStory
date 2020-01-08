@@ -4,12 +4,12 @@ class Post < ApplicationRecord
   has_many :images, dependent: :destroy
   has_many :likes, dependent: :destroy
   has_many :comments, dependent: :destroy
-  has_many :post_tags
-  has_many :tags, through: :post_tags
+  has_many :post_tags, dependent: :destroy
+  has_many :tags, through: :post_tags, dependent: :destroy
   belongs_to :user
   belongs_to_active_hash :category
-  accepts_nested_attributes_for :tags
-  accepts_nested_attributes_for :images
+  accepts_nested_attributes_for :tags, allow_destroy: true
+  accepts_nested_attributes_for :images, allow_destroy: true
   def age
     (((self.date.year * 1000 + self.date.month * 100 + self.date.day) - (1993 * 1000 + 10 * 100 + 27))/1000.floor).to_s
   end

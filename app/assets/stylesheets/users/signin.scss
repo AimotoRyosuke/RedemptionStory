@@ -1,0 +1,120 @@
+.signin {
+  width: 700px;
+  margin: 0 auto;
+  font-size: 14px;
+  &__menu {
+    width: 450px;
+    box-sizing: border-box;
+    padding: 32px 50px 0;
+    margin: 0 auto;
+    &__title {
+      font-size: 22px;
+      height: 70px;
+      width: 100%;
+      text-align: center;
+    }
+    &__form {
+      width: 100%;
+      border-bottom: 1px solid #eee;
+      &__input {
+        display: block;
+        height: 50px;
+        width: 100%;
+        padding: 10px 16px 8px;
+        border: 1px solid #eee;
+        margin-bottom: 24px;
+        border: 2px solid  #8f55087e;
+        border-radius: 4px;
+        box-sizing: border-box;
+      }
+      &__submit {
+        height: 50px;
+        width: 100%;
+        margin-bottom: 24px;
+        font-size: 18px;
+        background-color: #8f5508;
+        color: white;
+        text-align: center;
+        line-height: 50px;
+        cursor: pointer;
+        border-radius: 4px;
+        outline: none;
+      }
+      &__submit:active {
+        opacity: .7;
+      }
+    }
+    &__facebook {
+      display: block;
+      text-decoration: none;
+      color: white;
+      background-color: #385185;
+      height: 50px;
+      width: 100%;
+      margin: 24px 0 16px;
+      position: relative;
+      border-radius: 4px;
+      i {
+        height: 26px;
+        width: 23px;
+        padding-right: 3px;
+        color: #385185;
+        background-color: #fff;
+        font-size: 24px;
+        text-align: end;
+        line-height: 32px;
+        border-radius: 1px;
+        position: absolute;
+        top: 12px;
+        left: 14px;
+      }
+      p {
+        width: 100%;
+        text-align: center;
+        line-height: 50px;
+      }
+    }
+    &__facebook:hover {
+      opacity: .7;
+    }
+    &__google {
+      display: block;
+      text-decoration: none;
+      color: black;
+      height: 48px;
+      width: 100％;
+      border: 1px solid #979797;
+      margin-bottom: 24px;
+      position: relative;
+      border-radius: 4px;
+      img {
+        position: absolute;
+        top: 14px;
+        left:15px;
+      }
+      p {
+        width: 100%;
+        line-height: 50px;
+        text-align: center;
+      }
+    }
+    &__google:hover {
+      opacity: .7;
+    }
+  }
+      &__registration {
+        display: flex;
+        justify-content: center;
+        margin-bottom: 32px;
+        a {
+          margin-left: 3px;
+          text-align: center;
+          color: #0099e8;
+          text-decoration: none;
+          border-radius: 4px;
+        }
+        a:hover {
+          opacity: .7;
+        }
+      }
+}

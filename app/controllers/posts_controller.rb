@@ -1,5 +1,6 @@
 class PostsController < ApplicationController
-  before_action :post_params, only: [:create, :update,]
+  before_action :post_params, only: [:create]
+  before_action :update_post_params, only: [:update]
 
   def index
     @posts = Post.includes(:tags).all.order("id desc").limit(12)
@@ -12,10 +13,9 @@ class PostsController < ApplicationController
   end
 
   def create
-    binding.pry
     @post = Post.new(post_params)
     if @post.save
-      redirect_to root_path
+      redirect_to post_path(@post)
     else
       @post.images.build
       @post.tags.build
@@ -28,8 +28,9 @@ class PostsController < ApplicationController
   end
 
   def update
-    if Post.update(update_post_params)
-      redirect_to root_path
+    @post = Post.find(params[:id])
+    if @post.update(update_post_params)
+      redirect_to post_path
     else
       render :edit
     end
@@ -44,7 +45,7 @@ class PostsController < ApplicationController
 
   def destroy
     @post = Post.find(params[:id])
-    if @post.delete
+    if @post.destroy
       redirect_to root_path
     else
       render :show
@@ -63,6 +64,6 @@ class PostsController < ApplicationController
   end
 
   def update_post_params
-    params.require(:post).permit(:title, :date, :text, tags_attributes:[:name], images_attributes:[:image, :_destroy, :id]).merge(user_id: current_user.id)
+    params.require(:post).permit(:title, :date, :text, tags_attributes:[:name, :_destroy, :id], images_attributes:[:image, :_destroy, :id]).merge(user_id: current_user.id)
   end
 end

@@ -1,0 +1,93 @@
+.user-page {
+  width: 700px;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  &__title {
+    height: 90px;
+    width: 100%;
+    line-height: 90px;
+    text-align: center;
+    font-size: 22px;
+  }
+  &__left {
+    width: 160px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: flex-start;
+    margin-right: 30px;
+    &__image {
+      height: 140px;
+      width: 140px;
+    }
+    &__nickname {
+      font-size: 18px;
+      width: 100%;
+      text-align: center;
+    }
+    &__edit {
+      text-decoration: none;
+      width: 73px;
+      line-height: 30px;
+      text-align: center;
+      background-color: #cff0d7;
+      border-radius: 3px;
+      color: black;
+    }
+    &__delete {
+      text-decoration: none;
+      width: 73px;
+      line-height: 30px;
+      text-align: center;
+      background-color: rgb(241, 78, 37);
+      border-radius: 3px;
+      color: #fff;
+    }
+    &__edit:hover, &__delete:hover {
+      opacity: .7;
+    }
+  }
+  &__right {
+    width: 400px;
+    &__category {
+      width: 100%;
+      font-size: 18px;
+      display: flex;
+      justify-content: flex-start;
+      margin-bottom: 15px;
+      &__name {
+        width: 144px;
+        margin-right: 10px;
+      }
+      a {
+        color: #0099e8;
+        text-decoration: none;
+      }
+      a:hover {
+        opacity: .7;
+      }
+    }
+  }
+  &__post {
+    width: 100%;
+    border-top: 1px solid #eee;
+    margin-bottom: 60px;
+    &__title {
+      height: 90px;
+      width: 100%;
+      line-height: 90px;
+      text-align: center;
+      font-size: 22px;
+    }
+    &__list {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: flex-start;
+      li {
+        margin: 0 50px 40px;
+      }
+    }
+  }
+}
