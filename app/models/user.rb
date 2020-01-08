@@ -7,7 +7,7 @@ class User < ApplicationRecord
   
   mount_uploader :image, ImagesUploader
   validates :nickname, :gender, :birthday, presence: true
-  has_many :posts
+  has_many :posts, dependent: :destroy
   has_many :sns_auths, dependent: :destroy
   has_many :likes, dependent: :destroy
   has_many :comments, dependent: :destroy

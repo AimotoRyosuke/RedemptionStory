@@ -8,6 +8,10 @@ class ApplicationController < ActionController::Base
       birthday = devise_parameter_sanitizer.instance_values.values[1][:user]['birthday(1i)'] + "%02d" % devise_parameter_sanitizer.instance_values.values[1][:user]['birthday(2i)'].to_i + "%02d" % devise_parameter_sanitizer.instance_values.values[1][:user]['birthday(3i)'].to_i
       devise_parameter_sanitizer.instance_values.values[1][:user][:birthday] = birthday
       devise_parameter_sanitizer.permit(:sign_up, keys: [:nickname, :gender, :birthday, :image])
+    elsif devise_parameter_sanitizer.instance_values.values[1][:action] == "update" && devise_parameter_sanitizer.instance_values.values[1][:controller] == "devise/registrations"
+      birthday = devise_parameter_sanitizer.instance_values.values[1][:user]['birthday(1i)'] + "%02d" % devise_parameter_sanitizer.instance_values.values[1][:user]['birthday(2i)'].to_i + "%02d" % devise_parameter_sanitizer.instance_values.values[1][:user]['birthday(3i)'].to_i
+      devise_parameter_sanitizer.instance_values.values[1][:user][:birthday] = birthday
+      devise_parameter_sanitizer.permit(:account_update, keys: [:nickname, :gender, :birthday, :image])
     end
   end
 

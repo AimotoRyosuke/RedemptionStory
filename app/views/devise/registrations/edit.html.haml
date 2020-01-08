@@ -1,0 +1,34 @@
+%div.user-edit
+  %h2.user-edit__title 会員情報変更
+  = render "devise/shared/error_messages", resource: resource
+  = form_with model: @user, url: user_registration_path, local: true, class: 'user-edit__form' do |f|
+    .user-edit__form__group
+      %p.user-edit__form__group__name ニックネーム
+      = f.text_field :nickname, autofocus: true , class: 'user-edit__form__group__input', placeholder: "ニックネームを入力してください"
+    .user-edit__form__group
+      %p.user-edit__form__group__name 性別
+      = f.select :gender, ['男性', '女性'], {include_blank: '選択してください'}, class: 'user-edit__form__group__input'
+    .user-edit__form__group
+      %p.user-edit__form__group__name 生年月日
+      != sprintf(f.date_select(:birthday, prefix:'user',with_css_classes:'XXXXX', prompt:"--",use_month_numbers:true, start_year:Time.now.year, end_year:1930, date_separator:'%s'),'年','月')+'日'
+    .user-edit__form__group
+      %p.user-edit__form__group__name メールアドレス
+      = f.email_field :email, autofocus: true, autocomplete: "email", class: 'user-edit__form__group__input', placeholder: "メールアドレスを入力してください"
+    .user-edit__form__group
+      %p.user-edit__form__group__name パスワード
+      = f.password_field :password, autocomplete: "new-password", class: 'user-edit__form__group__input', placeholder: "パスワードを入力してください"
+    .signup__form__group
+      %p.signup__form__group__name パスワード（確認用）
+      = f.password_field :password_confirmation, autocomplete: "new-password", class: 'signup__form__group__input', placeholder: "もう一度入力してください"
+    .user-edit__form__group
+      %p.user-edit__form__group__name アイコン
+      .user-edit__form__group__image
+        = f.file_field :image, class: 'user-edit__form__group__image__hidden', accept: "image/*"
+        = image_tag current_user.image.url, class: "user-edit__form__group__image__show"
+        = f.label :image, "変更", class: 'user-edit__form__group__image__change'
+        %p.user-edit__form__group__image__delete 削除
+    .user-edit__form__group
+      %p.user-edit__form__group__name 現在のパスワード *必須
+      = f.password_field :current_password, autocomplete: "current-password", class: 'user-edit__form__group__input', placeholder: "現在のパスワードを入力してください"
+    = link_to'キャンセル', user_path(current_user), class: "user-edit__form__cancel" 
+    = f.submit '変更', class: 'user-edit__form__submit'

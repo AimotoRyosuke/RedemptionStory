@@ -10,14 +10,12 @@
     = f.text_field :tag, class: "form__category__input", id: "tag", placeholder: "商品に関するタグを入力してEnterを押してください"
     %ul.form__category__tag
       - if @post.tags[0].id.present?
-        - i = 0
         = f.fields_for :tags do |tag|
-          - @post.tags.each do |t|
-            %li.tag-box
-              = tag.text_field :name, class: "form__category__tag__hidden", name: "post[tags_attributes][#{i}][name]"
-              = tag.label :name, t.name, class: "form__category__tag__show"
-              %p.form__category__tag__delete ×
-              - i += 1
+          %li.tag-box
+            = tag.text_field :name, class: "form__category__tag__hidden", name: "post[tags_attributes][#{tag.index}][name]"
+            = tag.label :name, @post.tags[tag.index].name, class: "form__category__tag__show"
+            = tag.label :_destroy, "×", class: "form__category__tag__destroy"
+            = tag.check_box :_destroy, class: "form__category__tag__checkbox"
   .form__category
     %p.form__category__name 日付
     = f.date_field :date, class: 'form__category__input--date'
@@ -28,23 +26,23 @@
   .form__category
     %p.form__category__name 画像
     %ul.form__category__image
-      - i = 0
-      -if @post.images[0].id.present?
+      -if @post.persisted?
         = f.fields_for :images do |img|
           %li.form__category__image__box
-            = img.file_field :image, name: "post[images_attributes][#{i}][image]", class: "form__category__image__box__hidden", accept: "image/*"
-            = image_tag @post.images[i].image.url, class: "form__category__image__box__show"
+            = img.file_field :image, name: "post[images_attributes][#{img.index}][image]", class: "form__category__image__box__hidden", accept: "image/*"
+            = image_tag @post.images[img.index].image.url, class: "form__category__image__box__show"
             = img.label :image, "変更", class: "form__category__image__box__change"
-            %p.form__category__image__box__delete 削除
-            - i += 1
-      -if @post.images.length <= 4
+            = img.label :_destroy, "削除", class: "form__category__image__box__destroy"
+            = img.check_box :_destroy, class: "form__category__image__box__checkbox"
+      -else
         = f.fields_for :images do |img|
           %li.form__category__image__box
-            = img.file_field :image, name: "post[images_attributes][#{i}][image]", class: "form__category__image__box__hidden", accept: "image/*"
+            = img.file_field :image, name: "post[images_attributes][0][image]", class: "form__category__image__box__hidden", accept: "image/*"
             = img.label :image, class: "form__category__image__box__input" do
               クリックして
               %br
               画像を投稿する
               %br
               （最大５枚）
+            
   = f.submit "投稿", class: "form__submit"

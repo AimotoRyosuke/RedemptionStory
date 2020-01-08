@@ -25,6 +25,12 @@ $(function(){
   }
 
   let i = $(".form__category__image").find(".form__category__image__box__show").length + 1;
+
+  if($(".form__category__image__box__show")[0] && $(".form__category__image__box__show").length <= 4){
+    appendNext();
+    i += 1;
+  }
+
   $(document).on("change", ".form__category__image__box", function(e){
     let t = this;
     if($(t).find(".form__category__image__box__change").length == 0){
@@ -51,6 +57,14 @@ $(function(){
   
   $(document).on("click", ".form__category__image__box__delete", function(){
     $(this).parent().remove();
+    if($(".form__category__image").find(".form__category__image__box__show").length == 4){
+      appendNext();
+    }
+  });
+
+  $(document).on("click", ".form__category__image__box__destroy", function(){
+    $(this).parent().attr("class", "form__category__image__box--hidden");
+    $(this).parent().children(".form__category__image__box__show").remove();
     if($(".form__category__image").find(".form__category__image__box__show").length == 4){
       appendNext();
     }

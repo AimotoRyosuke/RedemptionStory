@@ -1,6 +1,11 @@
 .show
   .show__content
-    %h1.show__content__title=@post.date
+    .show__content__upper
+      %h1.show__content__upper__title=@post.date
+      -if @post.user.id == current_user.id
+        = link_to "編集する", edit_post_path(@post), class: "show__content__upper__edit"
+        = link_to "削除する", post_path(@post), method: :delete, class: "show__content__upper__delete", "data-confirm": "この投稿を削除します。本当によろしいですか？"
+    %p
     .show__content__left
       .show__content__left__images.slick
         -@post.images.each do |img|
@@ -24,14 +29,21 @@
           %p.show__content__left__like__nubmer= @likes.length
     .show__content__right
       %h2.show__content__right__title=@post.title
+      %p.show__content__right__category
+        カテゴリー：
+        =@post.category.name
       .show__content__right__tag
+        タグ：
         - @post.tags.each do |tag|
           %p.show__content__right__tag__part=tag.name
       .show__content__right__box
-        %p.show__content__right__user=@post.user.nickname
-        %p.show__content__right__gender=@post.user.gender
-        %p.show__content__right__age=@post.age + "歳（投稿時）"
-      %p.show__content__right__text=@post.text
+        = link_to @post.user.nickname,user_path(@post.user), class: "show__content__right__box__user"
+        %p.show__content__right__box__gender=@post.user.gender
+        %p.show__content__right__box__age=@post.age + "歳（投稿時）"
+      %p.show__content__right__text
+        \- ものがたり -
+        %br/
+        =@post.text
   .show__comments
     %p.show__comments__title コメント
     .show__comments__box

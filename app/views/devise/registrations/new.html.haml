@@ -3,24 +3,26 @@
   = render "devise/shared/error_messages", resource: resource
   = form_with model: @user, url: user_registration_path, local: true, class: 'signup__form' do |f|
     .signup__form__group
-      .signup__form__group__name ニックネーム 必須
-      = f.text_field :nickname, autofocus: true , class: 'signup__form__group__input'
+      %p.signup__form__group__name ニックネーム *必須
+      = f.text_field :nickname, autofocus: true , class: 'signup__form__group__input', placeholder: "ニックネームを入力してください"
     .signup__form__group
-      .signup__form__group__name 性別 *必須
+      %p.signup__form__group__name 性別 *必須
       = f.select :gender, ['男性', '女性'], {include_blank: '選択してください'}, class: 'signup__form__group__input'
     .signup__form__group
-      .signup__form__group__name 生年月日 *必須
+      %p.signup__form__group__name 生年月日 *必須
       != sprintf(f.date_select(:birthday, prefix:'user',with_css_classes:'XXXXX', prompt:"--",use_month_numbers:true, start_year:Time.now.year, end_year:1930, date_separator:'%s'),'年','月')+'日'
     .signup__form__group
-      .signup__form__group__name メールアドレス *必須
-      = f.email_field :email, autofocus: true, autocomplete: "email", class: 'signup__form__group__input'
+      %p.signup__form__group__name メールアドレス *必須
+      = f.email_field :email, autofocus: true, autocomplete: "email", class: 'signup__form__group__input', placeholder: "メールアドレスを入力してください"
     .signup__form__group
-      .signup__form__group__name パスワード *必須
-      = f.password_field :password, autocomplete: "new-password", class: 'signup__form__group__input'
+      %p.signup__form__group__name パスワード *必須
+      = f.password_field :password, autocomplete: "new-password", class: 'signup__form__group__input', placeholder: "パスワードを入力してください"
     .signup__form__group
-      .signup__form__group__name パスワード（確認用）*必須
-      = f.password_field :password_confirmation, autocomplete: "new-password", class: 'signup__form__group__input'
+      %p.signup__form__group__name パスワード（確認用）*必須
+      = f.password_field :password_confirmation, autocomplete: "new-password", class: 'signup__form__group__input', placeholder: "もう一度入力してください"
     .signup__form__group
-      .signup__form__group__name アイコン *任意
-      = f.file_field :image, class: 'signup__form__group__input'
+      %p.signup__form__group__name アイコン *任意
+      .signup__form__group__image
+        = f.file_field :image, class: 'signup__form__group__image__hidden', accept: "image/*"
+        = f.label :image, "クリックして画像を選択", class: 'signup__form__group__image__input'
     = f.submit '登録', class: 'signup__form__submit'

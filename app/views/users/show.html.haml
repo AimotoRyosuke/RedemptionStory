@@ -1,0 +1,45 @@
+.user-page
+  -if mypage?
+    %h2.user-page__title マイページ 
+  - else
+    %h2.user-page__title ユーザーページ
+  .user-page__left
+    = image_tag @user.image.url, class: "user-page__left__image"
+    %p.user-page__left__nickname= @user.nickname
+    -if mypage?
+      = link_to "変更する", edit_user_registration_path, class: "user-page__left__edit"
+      = link_to "削除する", user_registration_path, class: "user-page__left__delete", method: :delete, "data-confirm": "ユーザー情報を削除します。本当によろしいですか？"
+  .user-page__right
+    -if mypage?
+      .user-page__right__category
+        %p.user-page__right__category__name メールアドレス：
+        %p.user-page__right__category__content=@user.email
+    .user-page__right__category
+      %p.user-page__right__category__name 性別：
+      %p.user-page__right__category__content=@user.gender
+    .user-page__right__category
+      %p.user-page__right__category__name 投稿：
+      %p.user-page__right__category__content=@user.posts.count.to_s + "件"
+    .user-page__right__category
+      %p.user-page__right__category__name 生年月日：
+      %p.user-page__right__category__content=@user.birthday.strftime("%Y年%m月%d日")
+    .user-page__right__category
+      %p.user-page__right__category__name フォロー：
+      = link_to @user.posts.count.to_s + "人", "", class: "user-page__right__category__content"
+    .user-page__right__category
+      %p.user-page__right__category__name フォロワー：
+      = link_to @user.posts.count.to_s + "人", "", class: "user-page__right__category__content"
+  .user-page__post
+    %h3.user-page__post__title 投稿一覧
+    %ul.user-page__post__list
+      - @user.posts.each do |post|
+        %li.wrapper__posts__post
+          = link_to post_path(post) do
+            = image_tag post.images[0].image.url, class: "wrapper__posts__post__img"
+            %p.wrapper__posts__post__title=post.title
+            .wrapper__posts__post__category
+              カテゴリー：
+              =post.category.name
+            .wrapper__posts__post__bottom
+              %p.warrper__posts__post__bottom__user{style: "color: white"}=post.user.nickname
+              %p.wrapper__posts__post__bottom__date=post.created_at.strftime("%Y/%m/%d %H:%M")

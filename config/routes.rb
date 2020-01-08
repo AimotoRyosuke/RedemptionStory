@@ -8,9 +8,9 @@ Rails.application.routes.draw do
     resources :likes, only: [:create, :destroy], defaults: { format: 'json' }
     resources :comments, only: [:create, :destroy], defaults: { format: 'json' }
   end
-  resources :users do
+  resources :users, only: [:show] do
     collection do
-      get 'select', to: 'users#select'
+      get 'menu', to: 'users#signup_menu'
     end
   end
 end

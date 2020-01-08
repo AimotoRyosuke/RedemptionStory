@@ -7,13 +7,41 @@
   &__content {
     display: flex;
     flex-wrap: wrap;
-    &__title {
+    &__upper {
       width: 100%;
-      font-size: 24px;
-      font-family: 'Gelasio', serif;
       border-bottom: 1px solid #e3e3d3;
-      padding:0 0 10px 20px;
+      padding:0 20px 10px;
       margin-bottom: 20px;
+      &__title {
+        display: inline-block;
+        font-size: 24px;
+        font-family: 'Gelasio', serif;
+      }
+      &__edit {
+        display: inline-block;
+        line-height: 36px;
+        width: 70px;
+        text-align: center;
+        margin-left: 575px;
+        text-decoration: none;
+        background-color: #cff0d7;
+        color: #000;
+        border-radius: 3px;
+      }
+      &__delete {
+        display: inline-block;
+        line-height: 36px;
+        width: 70px;
+        text-align: center;
+        margin-left: 5px;
+        text-decoration: none;
+        background-color: rgb(241, 78, 37);
+        color: white;
+        border-radius: 3px;
+      }
+      &__edit:hover, &__delete:hover {
+        opacity: .7;
+      }
     }
     &__left {
       width: 500px;
@@ -90,6 +118,14 @@
         margin-bottom: 7px;
         display: flex;
         margin-bottom: 15px;
+        &__user {
+          color: #0099e8;
+          margin-right: 10px;
+          text-decoration: none;
+        }
+        &__user:hover {
+          opacity: .7;
+        }
         p {
           margin-right: 10px;
         }
