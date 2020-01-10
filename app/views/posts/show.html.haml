@@ -2,7 +2,7 @@
   .show__content
     .show__content__upper
       %h1.show__content__upper__title=@post.date
-      -if @post.user.id == current_user.id
+      -if user_signed_in? && @post.user.id == current_user.id
         = link_to "編集する", edit_post_path(@post), class: "show__content__upper__edit"
         = link_to "削除する", post_path(@post), method: :delete, class: "show__content__upper__delete", "data-confirm": "この投稿を削除します。本当によろしいですか？"
     %p
@@ -17,7 +17,8 @@
               = image_tag img.image.url, class: "show__content__left__select__image"
       - if @like.blank?
         = form_with url: post_likes_path(@post),local: true, class: "show__content__left__like unlike" do |f|
-          = f.submit "submit", class: "show__content__left__like__hidden", id: "unlike"
+          -if user_signed_in?
+            = f.submit "submit", class: "show__content__left__like__hidden", id: "unlike"
           = f.label :unlike do
             = icon "far", "heart", class: "show__content__left__like__icon"
           %p.show__content__left__like__nubmer= @likes.length
@@ -62,4 +63,7 @@
             %p.show__comments__box__comment__date= comment.created_at.strftime("%Y/%m/%d %H:%M")
     = form_with url: post_comments_path(@post), local: true, class: "show__comments__new" do |f|
       = f.text_area :text, placeholder: "コメントを入力してください（最大３００字まで）", class: "show__comments__new__input"
-      = f.submit "コメントする", class: "show__comments__new__submit"
+      -if user_signed_in?
+        = f.submit "コメントする", class: "show__comments__new__submit"
+      - else
+        %p.show__comments__new__submit コメントする

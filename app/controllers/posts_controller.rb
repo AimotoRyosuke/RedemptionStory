@@ -1,4 +1,5 @@
 class PostsController < ApplicationController
+  before_action :authenticate_user!, except: [:index, :show, :search]
   before_action :post_params, only: [:create]
   before_action :update_post_params, only: [:update]
 
@@ -39,8 +40,10 @@ class PostsController < ApplicationController
   def show
     @post = Post.find(params[:id])
     @likes = Like.where(post_id: params[:id])
-    @like = Like.find_by(user_id: current_user.id, post_id: params[:id])
     @comments = Comment.where(post_id: params[:id])
+    if user_signed_in?
+      @like = Like.find_by(user_id: current_user.id, post_id: params[:id])
+    end
   end
 
   def destroy
@@ -49,6 +52,14 @@ class PostsController < ApplicationController
       redirect_to root_path
     else
       render :show
+    end
+  end
+
+  def search
+    if params[:search].present?
+      @posts = Post.joins(:tags).search(*search_data)
+    else
+    @posts = Post.all
     end
   end
 
@@ -65,5 +76,9 @@ class PostsController < ApplicationController
 
   def update_post_params
     params.require(:post).permit(:title, :date, :text, tags_attributes:[:name, :_destroy, :id], images_attributes:[:image, :_destroy, :id]).merge(user_id: current_user.id)
+  end
+
+  def search_data
+    params.require(:search).permit(:keyword, :category_id, :date_start, :date_end, "month_start(2i)", "month_end(2i)", :gender, :age_start, :age_end).values
   end
 end

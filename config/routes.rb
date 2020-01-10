@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   resources :posts do
     collection do
       get 'rakuten', to: 'posts#rakuten_search', defaults: { format: 'json' }
+      get 'search', to: 'posts#search'
     end
     resources :likes, only: [:create, :destroy], defaults: { format: 'json' }
     resources :comments, only: [:create, :destroy], defaults: { format: 'json' }
