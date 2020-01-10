@@ -52,6 +52,14 @@ class PostsController < ApplicationController
     end
   end
 
+  def search
+    if params[:search].present?
+      @posts = Post.joins(:tags).search(*search_data)
+    else
+    @posts = Post.all
+    end
+  end
+
   def rakuten_search
     @items = RakutenWebService::Ichiba::Item.search(keyword: params[:keyword]).first(10)
     @keyword = params[:keyword]
@@ -65,5 +73,9 @@ class PostsController < ApplicationController
 
   def update_post_params
     params.require(:post).permit(:title, :date, :text, tags_attributes:[:name, :_destroy, :id], images_attributes:[:image, :_destroy, :id]).merge(user_id: current_user.id)
+  end
+
+  def search_data
+    params.require(:search).permit(:keyword, :category_id, :date_start, :date_end, "month_start(2i)", "month_end(2i)", :gender, :age_start, :age_end).values
   end
 end

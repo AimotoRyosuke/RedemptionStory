@@ -6,7 +6,7 @@
       %br/
       体験と一緒に紹介するサイト
   .banner__right
-    .banner__right__look
+    = link_to search_posts_path, class: "banner__right__look" do
       %p.banner__right__look__inner ものがたりを見る
     = link_to new_post_path, class: "banner__right__post" do
       %p.banner__right__post__inner ものがたりを投稿する
@@ -24,6 +24,6 @@
           .wrapper__posts__post__bottom
             %p.wrapper__posts__post__bottom__user=post.user.nickname + "さん"
             %p.wrapper__posts__post__bottom__date=post.created_at.strftime("%Y/%m/%d %H:%M")
-  .wrapper__more
+  = link_to search_posts_path, class: "wrapper__more" do
     %p.wrapper__more__text もっと見る
     = icon "fas", "angle-double-right", class: "wrapper__more__icon"

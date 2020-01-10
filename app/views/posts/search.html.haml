@@ -1,0 +1,51 @@
+= form_with scope: :search, url: search_posts_path, local: true, method: :get, class: "search-form" do |f|
+  %h2.search-form__title ものがたりを検索する
+  .search-form__box
+    %h3.search-form__box__name キーワード（タイトル、本文、タグ）：
+    = f.search_field :keyword, class: "search-form__box__input", placeholder: "キーワードを入力してください"
+    -# = f.search_field :keyword2, class: "search-form__title-text__input", placeholder: "キーワードを入力してください"
+    -# = f.search_field :keyword3, class: "search-form__title-text__input", placeholder: "キーワードを入力してください"
+  .search-form__box
+    %h3.search-form__box__name カテゴリー：
+    = f.collection_select :category_id, Category.all, :id, :name, {prompt: "---"}, {class: "search-form__box__input--cat"}
+    -# = f.collection_select :category2_id, Category.all, :id, :name, {prompt: "---"}, {class: "search-form__category__input"}
+  .search-form__box
+    %h3.search-form__box__name 投稿日：
+    = f.date_field :date_start, class: "search-form__box__input--date"
+    %span 〜
+    = f.date_field :date_end, class: "search-form__box__input--date"
+  .search-form__box
+    %h3.search-form__box__name 投稿時期：
+    = f.date_select(:month_start, discard_year: true, with_css_classes:'XXXXX', discard_day: true, use_month_numbers: true, prompt: "---", date_separator:'%s')+'月'
+    %span 〜
+    = f.date_select(:month_end, discard_year: true, discard_day: true, use_month_numbers: true, prompt: "---", date_separator:'%s')+'月'
+  .search-form__box
+    %h3.search-form__box__name 性別：
+    = f.select :gender, ['男性', '女性'], {include_blank: '選択'}, class: "search-form__box__input--gender"
+  .search-form__box
+    %h3.search-form__box__name 年齢：
+    = f.number_field :age_start, min: 0, max: 99, class: "search-form__box__input--age"
+    %span 〜
+    = f.number_field :age_end, min: 0, max: 99, class: "search-form__box__input--age"
+  = f.submit "検索", class: "search-form__submit"
+.search-result
+  .search-result__title
+    -if params[:search].present?
+      %h2 検索結果：
+      %p=@posts.length.to_s + "件表示"
+    -else
+      %h2 新着投稿：
+      %p=@posts.length.to_s + "件表示"
+  %ul.wrapper__posts
+    - @posts.each do |post|
+      %li.wrapper__posts__post
+        = link_to post_path(post) do
+          = image_tag post.images[0].image.url, class: "wrapper__posts__post__img"
+          %p.wrapper__posts__post__title=post.title
+          .wrapper__posts__post__category
+            カテゴリー：
+            =post.category.name
+          .wrapper__posts__post__bottom
+            %p.wrapper__posts__post__bottom__user=post.user.nickname + "さん"
+            %p.wrapper__posts__post__bottom__date=post.created_at.strftime("%Y/%m/%d %H:%M")
+
