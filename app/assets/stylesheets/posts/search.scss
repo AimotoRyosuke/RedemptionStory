@@ -1,5 +1,16 @@
+.hidden {
+  width: 100%;
+  height: 304px;
+  line-height: 100px;
+  text-align: center;
+  font-size: 30px;
+  background-color: #f3c7e0d7;
+  border-radius: 30px;
+  position: absolute;
+  z-index: 1;
+}
 .search-form {
-  width: 1200px;
+  width: 1195px;
   margin: 0 auto;
   padding:15px;
   display: flex;
@@ -85,7 +96,7 @@
   }
 }
 .search-result {
-  width: 1200px;
+  width: 1195px;
   margin: 0 auto;
   border-top: 1px solid #eee;
   &__title {

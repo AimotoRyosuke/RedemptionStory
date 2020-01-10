@@ -214,6 +214,11 @@
         width: 300px;
         font-size: 18px;
         margin: 40px 250px 0;
+        text-align: center;
+        line-height: 40px;
+      }
+      &__submit:active {
+        opacity: .7;
       }
     }
   }

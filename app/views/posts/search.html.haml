@@ -1,3 +1,5 @@
+-if !user_signed_in?
+  %h2.hidden 会員登録機能
 = form_with scope: :search, url: search_posts_path, local: true, method: :get, class: "search-form" do |f|
   %h2.search-form__title ものがたりを検索する
   .search-form__box

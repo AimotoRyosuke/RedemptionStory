@@ -1,4 +1,5 @@
 class PostsController < ApplicationController
+  before_action :authenticate_user!, except: [:index, :show, :search]
   before_action :post_params, only: [:create]
   before_action :update_post_params, only: [:update]
 
@@ -39,8 +40,10 @@ class PostsController < ApplicationController
   def show
     @post = Post.find(params[:id])
     @likes = Like.where(post_id: params[:id])
-    @like = Like.find_by(user_id: current_user.id, post_id: params[:id])
     @comments = Comment.where(post_id: params[:id])
+    if user_signed_in?
+      @like = Like.find_by(user_id: current_user.id, post_id: params[:id])
+    end
   end
 
   def destroy

@@ -15,6 +15,14 @@ class ApplicationController < ActionController::Base
     end
   end
 
+  def authenticate_user!
+    if user_signed_in?
+      super
+    else
+      redirect_to new_user_session_path
+    end
+  end
+
 
   def basic_auth
     authenticate_or_request_with_http_basic do |username, password|
