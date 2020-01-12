@@ -7,7 +7,7 @@ RSpec.describe Comment, type: :model do
       expect(comment).to be_valid
     end
   end
-  
+
   context "can't save" do
     it 'is invalid without text' do
       comment = build(:comment, text: nil)

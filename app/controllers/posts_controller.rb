@@ -14,7 +14,6 @@ class PostsController < ApplicationController
   end
 
   def create
-    binding.pry
     @post = Post.new(post_params)
     if @post.save
       redirect_to post_path(@post)
@@ -58,9 +57,9 @@ class PostsController < ApplicationController
 
   def search
     if params[:search].present?
-      @posts = Post.joins(:tags).search(*search_data)
+      @posts = Post.joins(:tags).search(*search_data).order("id desc")
     else
-    @posts = Post.all
+    @posts = Post.all.order("id desc")
     end
   end
 
