@@ -16,7 +16,7 @@ class User < ApplicationRecord
 
   def self.without_sns_data(auth)
     user = User.where(email: auth.info.email).first
-
+    
       if user.present?
         sns = SnsAuth.create(
           uid: auth.uid,
