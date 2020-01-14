@@ -8,11 +8,6 @@ $(function(){
                   <a href="${item.url}" class="site__rakuten-result__list__category__content" target=”_blank”>${item.name}</a>
                 </div>
                 <div class="site__rakuten-result__list__category">
-                  <p class="site__rakuten-result__list__category__title">URL</p>
-                  <p class="site__rakuten-result__list__category__copy">クリップボードにコピー</p>
-                  <p class="site__rakuten-result__list__category__content">${item.url}</p>
-                </div>
-                <div class="site__rakuten-result__list__category">
                   <p class="site__rakuten-result__list__category__title">商品説明</p>
                   <p class="site__rakuten-result__list__category__copy">クリップボードにコピー</p>
                   <p class="site__rakuten-result__list__category__content">${item.caption}</p>

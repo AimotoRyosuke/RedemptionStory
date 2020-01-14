@@ -5,16 +5,20 @@
   .right
     = render partial: "rakuten_search"
     .btn
-      -# =link_to "#rakuten", class: "btn__rakuten-search btn__all" do
       %p.btn__rakuten-search.btn__all
+        = icon "fas", "search", class: "tmp"
         = icon "fas", "search"
         楽天
       %p.btn__rakuten-delete.btn__all
+        = icon "fas", "trash-alt", class: "tmp"
         = icon "fas", "trash-alt"
         楽天
       %p.btn__import-image.btn__all 
+        = icon "fas", "image", class: "tmp"
+        = icon "fas", "download", class: "tmp2"
         = icon "far", "check-square"
         した画像を取り込む
       %p.btn__check-delete.btn__all
+        = icon "far", "square", class: "tmp"
         = icon "far", "check-square"
         を外す

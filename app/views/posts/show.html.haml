@@ -9,12 +9,18 @@
     .show__content__left
       .show__content__left__images.slick
         -@post.images.each do |img|
-          = image_tag img.image.url, class: "show__content__left__images__image"
+          -if img.image.to_s.match(/thumbnail.image.rakuten.co.jp/)
+            = image_tag img.image.identifier, class: "show__content__left__images__image"
+          - else
+            = image_tag img.image.url, class: "show__content__left__images__image"
       .show__content__left__select
         -if @post.images.length >= 2
           -@post.images.each_with_index do |img, i|
             = label_tag "slick-slide-control0#{i}" do
-              = image_tag img.image.url, class: "show__content__left__select__image"
+              -if img.image.to_s.match(/thumbnail.image.rakuten.co.jp/)
+                = image_tag img.image, class: "show__content__left__select__image"
+              - else
+                = image_tag img.image.url, class: "show__content__left__select__image"
       - if @like.blank?
         = form_with url: post_likes_path(@post),local: true, class: "show__content__left__like unlike" do |f|
           -if user_signed_in?

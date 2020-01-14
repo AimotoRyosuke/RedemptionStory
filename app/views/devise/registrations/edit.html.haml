@@ -26,7 +26,6 @@
         = f.file_field :image, class: 'user-edit__form__group__image__hidden', accept: "image/*"
         = image_tag current_user.image.url, class: "user-edit__form__group__image__show"
         = f.label :image, "変更", class: 'user-edit__form__group__image__change'
-        %p.user-edit__form__group__image__delete 削除
     .user-edit__form__group
       %p.user-edit__form__group__name 現在のパスワード *必須
       = f.password_field :current_password, autocomplete: "current-password", class: 'user-edit__form__group__input', placeholder: "現在のパスワードを入力してください"

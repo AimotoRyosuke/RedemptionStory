@@ -41,6 +41,19 @@
         user-select: none;
         transition: .4s;
         text-decoration: none;
+        position: relative;
+        .tmp {
+          position: absolute;
+          top: 16px;
+          left: 9px;
+          color: black;
+        }
+        .tmp2 {
+          position: absolute;
+          top: 40px;
+          left: 9px;
+          color: black;
+        }
       }
       &__import-image {
         height: 64px;
@@ -49,7 +62,11 @@
         margin-left: 0;
         background-color: #cff0d7;
         color: black;
+        .tmp, .tmp2 {
+          display: none;
+        }
       }
     }
   }
 }
+

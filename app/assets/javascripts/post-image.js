@@ -18,7 +18,7 @@ $(function(){
     let image = `
                 <li class="form__category__image__box">
                   <img src="${url}" class="form__category__image__box__show">
-                  <input name="post[images_attributes][${i}][image]" class="form__category__image__box__hidden" accept="image/*" type="file" id="post_images_attributes_${i}_image" value="${url}">
+                  <input type="text" value="${url}" name="post[images_attributes][${i}][remote_image_url]" id="post_images_attributes_${i}_remote_image_url" class="form__category__image__box__hidden">
                   <p class="form__category__image__box__delete">削除</p></li>
                 `
     $(".form__category__image").append(image);

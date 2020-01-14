@@ -3,6 +3,7 @@
   %head
     %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
     %title RedemptionStory
+    = favicon_link_tag 'logo.ico'
     = csrf_meta_tags
     = csp_meta_tag
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
@@ -10,7 +11,9 @@
     %script{src: "//cdn.jsdelivr.net/npm/slick-carousel@1.9.0/slick/slick.min.js", type: "text/javascript"}
   %body
     %header.header
-      = link_to "もらいモノがたり", root_path, class: "header__title もらいモノがたり"
+      = link_to root_path, class: "header__title" do
+        = image_tag "logo_icon.png", class: "header__title__icon"
+        = image_tag "logo_text.png", class: "header__title__text"
       .header__menu
         - unless user_signed_in?
           = link_to "ログイン", new_user_session_path
