@@ -41,7 +41,10 @@
       - @user.posts.each do |post|
         %li.wrapper__posts__post
           = link_to post_path(post) do
-            = image_tag post.images[0].image.url, class: "wrapper__posts__post__img"
+            -if post.images[0].image.to_s.match(/thumbnail.image.rakuten.co.jp/)
+              = image_tag post.images[0].image.identifier, class: "wrapper__posts__post__img"
+            -else
+              = image_tag post.images[0].image.url, class: "wrapper__posts__post__img"
             %p.wrapper__posts__post__title=post.title
             .wrapper__posts__post__category
               カテゴリー：
