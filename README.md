@@ -27,10 +27,10 @@
 |ユーザーフォロー機能|gem "acts_as_follower"、JS 非同期通信)|
 |単体テスト(model,controller)|gem "rspec-rails"|
 
-## データベース
+## ・データベース
 ![ER図](app/assets/images/RedemptionStory.jpg)
 
-## 開発環境
+## ・開発環境
 #### Ruby 2.5.1
 #### Rails 5.2.3
 #### Mysql 5.7
