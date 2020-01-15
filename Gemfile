@@ -13,7 +13,7 @@ gem 'active_hash'
 
 gem 'rails-i18n'
 
-gem 'kaminari'
+# gem 'kaminari'
 
 # Use Puma as the app server
 gem 'puma', '~> 3.12'
@@ -57,8 +57,6 @@ gem 'carrierwave'
 gem 'fog-aws'
 
 gem 'jquery-rails'
-
-gem 'payjp'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

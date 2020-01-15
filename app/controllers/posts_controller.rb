@@ -57,14 +57,14 @@ class PostsController < ApplicationController
 
   def search
     if params[:search].present?
-      @posts = Post.joins(:tags).search(*search_data)
+      @posts = Post.joins(:tags).search(*search_data).order("id desc")
     else
-    @posts = Post.all
+    @posts = Post.all.order("id desc")
     end
   end
 
   def rakuten_search
-    @items = RakutenWebService::Ichiba::Item.search(keyword: params[:keyword]).first(10)
+    @items = RakutenWebService::Ichiba::Item.search(keyword: params[:keyword]).first(15)
     @keyword = params[:keyword]
   end
 
