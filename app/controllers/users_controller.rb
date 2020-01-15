@@ -2,6 +2,9 @@ class UsersController < ApplicationController
   before_action :authenticate_user!, except: [:signup_menu]
 
   def signup_menu
+    if user_signed_in?
+      redirect_to root_path
+    end
   end
 
   def show

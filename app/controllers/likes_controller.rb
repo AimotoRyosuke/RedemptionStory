@@ -12,6 +12,8 @@ class LikesController < ApplicationController
     @likes = Like.where(post_id: params[:post_id])
   end
 
+  private
+
   def like_params
     params.permit(:post_id).merge(user_id: current_user.id)
   end
