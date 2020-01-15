@@ -73,7 +73,6 @@ $(function(){
   });
 
   $(".btn__rakuten-search").click(function(){
-    console.log($('#rakuten')[0].scrollHeight)
     $('.right').animate({ scrollTop: $('#rakuten')[0].scrollHeight})
   });
 

@@ -71,7 +71,6 @@ $(function(){
   });
 
   $(".btn__import-image").click(function(){
-    console.log($("input:checked").length)
     if($("input:checked").length+$(".form__category__image__box__show").length > 5){
       alert("5枚を超えるため、処理に失敗しました")
     } else {
