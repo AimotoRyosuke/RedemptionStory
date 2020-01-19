@@ -57,7 +57,7 @@ class PostsController < ApplicationController
 
   def search
     if params[:search].present?
-      @posts = Post.with_tag.search(*search_data)
+      @posts = Post.with_tag.search(*search_data).distinct.order("updated_at desc")
     else
     @posts = Post.all.order("id desc")
     end
@@ -71,12 +71,6 @@ class PostsController < ApplicationController
   private
 
   def post_params
-    # tag_ids = []
-    # params[:post][:tags_attributes].to_unsafe_h.each_value{|value|
-    #   if value[:id]
-    #     tag_ids << value[:id]
-    #   end
-    # }
     params.require(:post).permit(:title, :category_id, :date, :text, tags_attributes:[:name, :_destroy, :id], images_attributes:[:image, :remote_image_url]).merge({user_id: current_user.id, tag_ids: params[:tag_ids]})
   end
 
