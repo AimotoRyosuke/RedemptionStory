@@ -17,7 +17,7 @@ class Post < ApplicationRecord
   scope :title, ->(keyword) { where("(title LIKE(?))", "%#{keyword}%") if keyword.present? }
   scope :text, ->(keyword){ where("(text LIKE(?))", "%#{keyword}%") if keyword.present? }
   scope :with_tag, -> { joins(:tags) }
-  scope :tag, ->(keyword){where("(name LIKE(?))", "%#{keyword}%") if keyword.present? }
+  scope :tag, ->(keyword){(where("(name LIKE(?))", "%#{keyword}%")) if keyword.present? }
   scope :keyword, ->(keyword){ title(keyword).or(text(keyword)).or(tag(keyword))}
   scope :category, ->(category_id){ where(category_id: category_id) if category_id.present?}
   scope :first_date, ->(date_start){ where("updated_at >= ?", Date.strptime(date_start, "%Y-%m-%d")) if date_start.present? }
@@ -54,7 +54,7 @@ class Post < ApplicationRecord
     end
   end
 
-  scope :search, -> (keyword, category_id, date_start, date_end, month_start, month_end, gender, age_start, age_end){ 
+  scope :search, -> (keyword, category_id, date_start, date_end, month_start, month_end, gender, age_start, age_end){
     keyword(keyword).category(category_id).first_date(date_start).last_date(date_end).first_month(month_start).last_month(month_end).gender(gender).first_age(age_start).last_age(age_end)}
 
 end

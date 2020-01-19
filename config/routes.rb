@@ -20,4 +20,5 @@ Rails.application.routes.draw do
       get "followerlist", to: "users#followerlist"
     end
   end
+  resources :tags, only: [:index], defaults: { format: 'json'}
 end
