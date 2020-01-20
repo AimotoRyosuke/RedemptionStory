@@ -1,5 +1,4 @@
 class ApplicationController < ActionController::Base
-  before_action :basic_auth, if: proc{Rails.env.production?}
   before_action :configure_permitted_parameters, if: :devise_controller?
 
   protected
@@ -13,12 +12,6 @@ class ApplicationController < ActionController::Base
       birthday = devise_parameter_sanitizer.instance_values.values[1][:user]['birthday(1i)'] + "%02d" % devise_parameter_sanitizer.instance_values.values[1][:user]['birthday(2i)'].to_i + "%02d" % devise_parameter_sanitizer.instance_values.values[1][:user]['birthday(3i)'].to_i
       devise_parameter_sanitizer.instance_values.values[1][:user][:birthday] = birthday
       devise_parameter_sanitizer.permit(:account_update, keys: [:nickname, :gender, :birthday, :image])
-    end
-  end
-
-  def basic_auth
-    authenticate_or_request_with_http_basic do |username, password|
-      username == Rails.application.credentials.basic_auth[:username] && password == Rails.application.credentials.basic_auth[:password]
     end
   end
 
