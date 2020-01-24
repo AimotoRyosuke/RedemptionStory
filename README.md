@@ -9,7 +9,7 @@
 
 ## ・アプリケーションの概要
 ### 他人からプレゼントでもらったものを、自身の体験やもらったシチュエーションと一緒に紹介するwebアプリケーション
-### https://www.redemptionstory.site/
+### https://redemptionstory.site/
 #### ・テストアカウント
 #### アカウント：aaa@abc.com
 #### パスワード：a12345
